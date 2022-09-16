@@ -23,7 +23,7 @@
     </style>
 </head>
 <body>
-    <?php include('Cosa.html')?>
+    <?php include('menu.html')?>
     <h1>Hola esto no es php</h1>
     <?php for ($i=  0; $i < 5; $i++ ) { ?>
         <p>Imprimiendo html</p>
