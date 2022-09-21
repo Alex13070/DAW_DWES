@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php 
-        $n = 25;
+        $n = 25; 
         $mostrar = "";
         for ($i=1; $i <= $n; $i++) { 
             $lado = "";
