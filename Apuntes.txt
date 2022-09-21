@@ -1,0 +1,18 @@
+Lo primero que hay que hacer es usar el comando "git commit -m "mensaje" de manera que hacemos el commit de los archivos. En caso de que modifiquemos el archivo, haciendo "git status" en la carpeta repositorio, 
+nos dirá que ese archivo ha sido modificado. Para hacerle commit, tenemos que escribir el siguiente comando "git add "nombreArchivo". Para ver los commits que se han hecho, podemos poner el comando "git log". 
+Mediante este comando podemos ver todos los datos de los anteriores commits. 
+
+Si queremmos volver a un commit antiguo, tenemos que hacer el comando "git checkout codigoCommit" en codigo commit puedes usar el propio código del commit o el nombre de una rama.
+
+
+
+Para crear un par de claves de acceso desde linux, tenemos que escribir el comando ssh-keygen. No se debe cambiar el nombre para que se haga todo por defecto.
+
+Luego, en ajustes Github, lo que haremos será insertar la clave pública (aparecerá por terminal al escribir el comando "cat ~/.ssh/id_rsa").
+
+Tras esto, clonamos el repositorio seleccionando el enlace ssh.
+
+Para lanzar un servidor PHP, primero tenemos que instalar en ubuntu php-cli. Tras esto, lo que haremos será lanzar un servidor PHP mediante el siguiente comando: 
+"php -S localhost:8000". Si lanzamos el servidor en la carpeta desde la cual tenemos los archivos, tenemos que poner los archivos en la url.
+
+URL: localhost:8000/direccionarchivo  --> Si el archivo está en la carpeta x y se llama y.php la direccion seria /x/y.php de manera que sería localhost:8000/x/y.php
