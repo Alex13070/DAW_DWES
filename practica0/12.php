@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,11 +16,10 @@
     }
     ?>
     <?php 
-        $n = 5;
+        $n = 100;
         $mostrar = "";
         for ($i=1; $i <= $n; $i++) {
-            $mostrar .= "<div style='background-color:".rand_color()."; width: "
-                .($i."0")."cm ;text-align: center; margin: 0 auto;'>*</div>";
+            $mostrar .= "<div style='background-color:".rand_color()."; width: ".$i."cm ;text-align: center; margin: 0 auto;'>*</div>";
         }    
 
         echo $mostrar; 
