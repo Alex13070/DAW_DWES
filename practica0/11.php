@@ -10,6 +10,7 @@
     <?php 
         $n = 25; 
         $mostrar = "";
+        
         for ($i=1; $i <= $n; $i++) { 
             $lado = "";
             for ($j=0; $j < $i; $j++) { 

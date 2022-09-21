@@ -6,8 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Duodécimo</title>
 </head>
-
-
 <body>
 
     <?php
@@ -23,7 +21,7 @@
                 .($i."0")."cm ;text-align: center; margin: 0 auto;'>*</div>";
         }    
 
-        echo $mostrar;
+        echo $mostrar; 
     ?>
 </body>
 </html>
