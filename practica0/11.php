@@ -16,7 +16,7 @@
                 $lado = $lado."*";
             }
 
-            $mostrar .= "<p style='text-align: center'>".$lado."</p>";
+            $mostrar .= "<p>".$lado."</p>";
         }    
 
         echo $mostrar;
