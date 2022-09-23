@@ -76,7 +76,7 @@
             background: #0d0d0d;
         }
         .cuerpo {
-            margin-top: 10%;
+            margin-top: 5%;
         }
     </style>
 </head>
@@ -125,7 +125,7 @@
                     <div class="card p-4     text-right">
                             <blockquote class="blockquote mb-0">
                                 <p>
-                                    Numero de vocales: <?= (sacarVocales($valor))?>
+                                    Número de vocales: <?= (sacarVocales($valor))?>
                                 </p>
                             </blockquote>
                         </div>
@@ -134,7 +134,7 @@
                     <div class="card p-4 text-right">
                         <blockquote class="blockquote mb-0">
                             <p>
-                                Numero de consonantes: <?= strval(sacarConsonantes($valor))?>
+                                Número de consonantes: <?= strval(sacarConsonantes($valor))?>
                             </p>
                         </blockquote>
                     </div>
