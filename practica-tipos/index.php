@@ -73,7 +73,7 @@
             width: 99%; 
         }
         body {
-            background-color: #202020;
+            background: #0d0d0d;
         }
         .cuerpo {
             margin-top: 10%;
