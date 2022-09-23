@@ -70,6 +70,7 @@
     <style>
         html {
             height: 100%;
+            width: 99%; 
         }
         body {
             background-color: #202020;
