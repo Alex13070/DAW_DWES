@@ -6,7 +6,7 @@
         $existe = true;
     }
 
-    function sacarVocales($valor) {
+    function sacarVocales($valor): int {
         $cadena = quitarEspacios($valor);
         
         $vowels = array("a", "e", "i", "o", "u");
@@ -20,7 +20,7 @@
         return $cuantas;
     }
 
-    function sacarConsonantes($valor) {
+    function sacarConsonantes($valor): int {
         $cadena = quitarEspacios($valor);
         $vowels = array("a", "e", "i", "o", "u");
         $cuantas = 0;
@@ -33,12 +33,12 @@
         return $cuantas;
     }
 
-    function quitarEspacios($valor) {
+    function quitarEspacios($valor): string {
         return strtolower(str_replace(' ', '', $valor));
     }
 
 
-    function esPalindromo($valor) {
+    function esPalindromo($valor): bool {
         $palindromo = true;
 
         $cadena = quitarEspacios($valor);
@@ -86,13 +86,14 @@
 
         <div class="row p-4">
             <div class="col-md-3"></div>
+
             <div class="col-md-6">
                 <div class="card p-3 text-right">
             
             
                     <form action="index.php" method="get">
                         <div class="mb-3">
-                            <label for="exampleInputEmail1" class="form-label">Introduzca su texto</label>
+                            <label class="form-label">Introduzca su texto</label>
                             <input  class="form-control" id="exampleInputEmail1" type="text" value="<?= ($existe)?$valor:''?>" name="texto">
                             <?php
                                 if ($existe && !$valido) {
