@@ -1,3 +1,13 @@
+<?php 
+
+    if (isset($_GET["numero"]) && is_numeric($_GET["numero"])) {
+        $radio = $_GET["numero"];
+    }
+    else {
+        $radio = 5;
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +18,15 @@
     <title>Quinto</title>
 </head>
 <body>
+
+    <form action="5.php" method="get">
+        Radio: <input type="number" name="numero" value="<?=$radio ?>">
+        <input type="submit" value="Calcular">
+    </form>
+    <br>
     <?php 
-        $radio = 5;
+
+        
         $nombre = "Pepe";
         $pi = 3.14;
 
