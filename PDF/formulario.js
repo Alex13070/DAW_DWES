@@ -11,7 +11,7 @@ function validarFormulario(evento) {
 
     for (let index = 0; index < formulario.length && valido; index++) {
         if (formulario.elements[index].value.length < 1) {
-            valido = false;
+            valido = false; 
         }
         
     }
