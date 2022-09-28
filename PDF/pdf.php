@@ -4,7 +4,7 @@ include("fpdf/fpdf.php");
 $nombre = $_GET["nombre"];
 $empresa = $_GET["empresa"];
 $representante = $_GET["representante"];
-$fecha = $_GET["fecha"];
+$fecha = $_GET["fecha"]; 
 
 
 
