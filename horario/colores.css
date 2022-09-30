@@ -1,0 +1,51 @@
+table {
+    background-color: #000000;
+    border-width: 1px;
+    margin-left: 30px;
+    
+    
+}
+
+.alinear{
+    float: left;
+}
+td {
+    background-color: #FFFFFF;
+    text-align: center;
+    padding: 10px;
+}
+
+td:hover {
+    background-color: #FFFFFF;
+}
+.tabla {
+    padding: 10px;
+}
+
+.DWEC {
+    background-color: yellowgreen;
+}
+
+.EIE {
+    background-color: yellow;
+
+}
+
+.INGLES {
+    background-color: skyblue;
+}
+
+.DAW {
+    background-color: lightpink;
+}
+
+.DIW {
+    background-color: lightcoral;
+}
+.DWES {
+    background-color: lightsalmon;
+}
+
+body {
+    background-color: #252525;
+}
