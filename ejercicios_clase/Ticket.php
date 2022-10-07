@@ -1,5 +1,5 @@
 <?php 
-$productos = [
+const productos = [
     "naranja" => 1.2,
     "manzana" => 1.5,
     "pera" => 1.8,
@@ -15,9 +15,9 @@ $productos = [
     "helado_chocolate" => 2.99
 ];
 
-$claves = array_keys($productos);
+$claves = array_keys(productos);
 
-$valores = array_values($productos);
+$valores = array_values(productos);
 
 
 
@@ -49,18 +49,23 @@ $valores = array_values($productos);
 
     <table>
 
-        <?php for($i = 0; $i < count($productos); $i++) { ?>
+        <?php for($i = 0; $i < count(productos); $i++) { ?>
 
             <tr>
                 <td><?=$claves[$i]?></td>
                 <td><?=$valores[$i]?></td>
-                <td><input type="number" name="<?= $claves[$i] ?>" value="0"></td>
+                <td><?= ($valores[$i] * $_GET[$claves[$i]])?></td>
             </tr>
 
         <?php } ?>
 
         <tr>
-            <td colspan="3"><input type="submit" value="Enviar"></tr>
+            <td colspan="3">
+                <?= array_reduce($claves, function($acumulador, $nombre){
+                    return $acumulador + ($_GET[$nombre] * productos[$nombre]);
+                }, 0)
+                ?>
+                </td>
         </tr>
 
 
