@@ -19,9 +19,19 @@ $claves = array_keys(productos);
 
 $valores = array_values(productos);
 
+function calcularTotal ($claves) {
+    return array_reduce($claves, function($acumulador, $nombre){
+        return $acumulador + calcularPrecioPorProducto($nombre, productos[$nombre]);
+    }, 0);
+}
 
+function calcularPrecioPorProducto($clave, $valor) {
+    return isset($_GET[$clave])? ($valor * $_GET[$clave]) : 0;
+}
 
 ?>
+
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -30,49 +40,25 @@ $valores = array_values(productos);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        table {
-            background-color: #000000;
-            border-width: 1px;
-            margin-left: 30px;
-        }
-        td {
-            background-color: #FFFFFF;
-            text-align: center;
-        }</style>
+    <link rel="stylesheet" href="ticket.css">
 </head>
 
 
 <body>
 
-<form action="Ticket.php" method="get">
-
     <table>
-
         <?php for($i = 0; $i < count(productos); $i++) { ?>
-
             <tr>
                 <td><?=$claves[$i]?></td>
                 <td><?=$valores[$i]?></td>
-                <td><?= ($valores[$i] * $_GET[$claves[$i]])?></td>
+                <td><?=calcularPrecioPorProducto($claves[$i], $valores[$i])?></td>
             </tr>
-
         <?php } ?>
-
         <tr>
-            <td colspan="3">
-                <?= array_reduce($claves, function($acumulador, $nombre){
-                    return $acumulador + ($_GET[$nombre] * productos[$nombre]);
-                }, 0)
-                ?>
-                </td>
+            <td>Subtotal</td>
+            <td colspan="2"><?= calcularTotal($claves) ?></td>
         </tr>
-
-
     </table>
-
-
-</form>
     
 </body>
 </html>

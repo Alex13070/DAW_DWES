@@ -30,16 +30,7 @@ $valores = array_values($productos);
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        table {
-            background-color: #000000;
-            border-width: 1px;
-            margin-left: 30px;
-        }
-        td {
-            background-color: #FFFFFF;
-            text-align: center;
-        }</style>
+    <link rel="stylesheet" href="ticket.css">
 </head>
 
 
