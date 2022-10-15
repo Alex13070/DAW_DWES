@@ -1,5 +1,5 @@
 <?php 
-include("fpdf/fpdf.php");
+include("fpdf.php");
 
 $nombre = $_GET["nombre"];
 $empresa = $_GET["empresa"];
