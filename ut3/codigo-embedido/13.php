@@ -1,5 +1,6 @@
 <?php 
-// Crea una función para escribir select de HTML, la función recibe un asociativo con el nombre y el value, también recibe el elemento seleccionado. como un entero (que representa su value)
+// Crea una función para escribir select de HTML, la función recibe un asociativo con el nombre y el value, también recibe el elemento seleccionado 
+// como un entero (que representa su value)
 
 // /*** 
 // $opciones = [
@@ -13,6 +14,25 @@
 //   ...
 // }
 
+$opciones = [
+  "Madrid" => 28,
+  "Sevilla" => 17,
+  "Cáceres" => 56,
+];
+
+function genera_select(array $opciones, int $seleccionada = 2) {
+    $select = "<select name='select'>";
+    $i = 1;
+
+    array_walk($opciones, function ($valor, $clave) use (&$select, &$i, $seleccionada) {
+        $select .= "<option value='$valor' ". (($i == $seleccionada)?"selected":"") .">$clave</option>";
+        $i++;
+    });
+
+    $select .= "</select>";
+
+    return $select;
+}
 
 
 ?>
@@ -25,7 +45,7 @@
     <title>Ejercicio 13</title>
 </head>
 <body>
-    <?php ?>
+    <?= genera_select($opciones, 1)?>
 </body>
 </html>
 
