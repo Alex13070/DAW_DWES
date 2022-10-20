@@ -56,27 +56,7 @@ $pobreton = new CuentaBancaria('Pobretón', -10_000);
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <title>Cuenta bancaria</title>
-    <style>
-        main {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-        }
-        .campo_cuenta {
-            padding: 10px;
-            display: inline-block;
-            background-color: lightblue;
-            border: 1px solid black;
-        }
-        h2 {
-            text-align: center;
-        }
-        .cuenta {
-            padding: 10px;
-
-        }
-    </style>
+    <link rel="stylesheet" href="cuenta.css" type="text/css">
 </head>
 <body>
 

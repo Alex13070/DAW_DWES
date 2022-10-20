@@ -4,8 +4,6 @@ require('Circulo.php');
 
 $circulo = new Circulo(5);
 
-var_dump($circulo);
-print_r("<br>".$circulo->calcularArea());
 
 ?>
 <!DOCTYPE html>
@@ -19,7 +17,7 @@ print_r("<br>".$circulo->calcularArea());
 <body>
     <main>
         <p>Mi radio es: <?= $circulo->getRadio() ?></p>
-        <p></p>
+        <p>Mi area es: <?= $circulo->calcularArea() ?></p>
     </main>
 </body>
 </html>
