@@ -20,7 +20,7 @@ $opciones = [
   "Cáceres" => 56,
 ];
 
-function genera_select(array $opciones, int $seleccionada = 2) {
+function genera_select(array $opciones, int $seleccionada = -1) {
     $select = "<select name='select'>";
     $i = 1;
 
@@ -45,7 +45,7 @@ function genera_select(array $opciones, int $seleccionada = 2) {
     <title>Ejercicio 13</title>
 </head>
 <body>
-    <?= genera_select($opciones, 1)?>
+    <?= genera_select($opciones)?>
 </body>
 </html>
 

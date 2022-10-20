@@ -16,8 +16,6 @@ function cambiarLetras(string $var) {
         else {
             $retorno .= strtoupper($var[$i]);
         }
-
-        echo $retorno."<br>";
     }
 
 
