@@ -7,7 +7,7 @@ class CocheGrua extends Coche {
 
     public function __construct(string $matricula = "", string $marca = "", int $carga = 0, Coche $cocheCargado = null) {
         parent::__construct($matricula, $marca, $carga);
-        $this->cocheCargado = null;
+        $this->cocheCargado = $cocheCargado;
     }
 
     public function cargar(Coche $coche) {
@@ -23,7 +23,7 @@ class CocheGrua extends Coche {
     }
 
     public function __toString() {
-        return parent::__toString()."<br>". (($this->cocheCargado != null) ?"Lleva ".$this->coche->__toString():"No lleva ningún coche.");      
+        return parent::__toString()."<br>". ((is_null($this->cocheCargado)) ?"No lleva ningún coche.":"Lleva ".$this->cocheCargado->__toString());      
     }
 
     public function pintarInformacion() {

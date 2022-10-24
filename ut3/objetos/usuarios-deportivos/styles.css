@@ -1,0 +1,12 @@
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.campo-usuario {
+    padding: 10px;
+    display: inline-block;
+    background-color: lightblue;
+    border: 1px solid black;
+}

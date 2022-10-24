@@ -17,12 +17,18 @@
     $renaultRemolque = new CocheConRemolque ("1001", "Renault", 30, 200);
     $porche = new Coche("1002", "Porche", 40);
     $renaultGrua = new CocheGrua("1003", "Renault", 20);
+    $nissanRemolque = new CocheConRemolque("1005", "Nissan", 22, 250);
+    $kiagrua = new CocheGrua("1007", "Kia", 30);
 
-    //$renaultGrua->cargar($porche);
+
+
+    $renaultGrua->cargar($porche);
+    $kiagrua->cargar($nissanRemolque);
 
     $array[0] = $bmv;
     $array[1] = $renaultRemolque;
     $array[2] = $renaultGrua;
+    $array[3] = $kiagrua;
 
 ?>
 
