@@ -7,7 +7,13 @@ include("UsuarioPremium.php");
 
 $usuario = new Usuario("Usuario", "Normal", "furbo");
 $usuarioPremium = new UsuarioPremium("Usuario", "Premium", "furbo pero en premium");
+$usuarioAdmin = new UsuarioAdmin("Usuario", "Admin", "Deporte de admin");
 
+function introducirSeisResultados(Usuario $usuario, Resultado $resultado) {
+    for ($i=0; $i < 12; $i++) { 
+        $usuario->introducirResultado($resultado);
+    }
+}
 
 
 
@@ -24,22 +30,22 @@ $usuarioPremium = new UsuarioPremium("Usuario", "Premium", "furbo pero en premiu
 <body>
     
     <?php 
-
-
-        for ($i=0; $i < 12; $i++) { 
-            $usuario->introducirResultado(Resultado::VICTORIA);
-        }
-
-        
         $usuario->imprimirInformacion();
-        
-
-        for ($i=0; $i < 12; $i++) { 
-            $usuarioPremium->introducirResultado(Resultado::VICTORIA);
-        }
         $usuarioPremium->imprimirInformacion();
+        $usuarioAdmin->imprimirInformacion();
+        
+        introducirSeisResultados($usuarioPremium, Resultado::VICTORIA);
+        introducirSeisResultados($usuarioPremium, Resultado::DERROTA);
+        introducirSeisResultados($usuario, Resultado::VICTORIA);
+        introducirSeisResultados($usuario, Resultado::DERROTA);
+        introducirSeisResultados($usuarioAdmin, Resultado::VICTORIA);
+        introducirSeisResultados($usuarioAdmin, Resultado::DERROTA);
 
-        echo $usuarioPremium->getNombre()." <-- Aqui debería de aparecer el nombre del UsuarioPremium";
+        $usuario->imprimirInformacion();
+        $usuarioPremium->imprimirInformacion();
+        $usuarioAdmin->imprimirInformacion();
+
+        $usuarioAdmin->crearPartido();
     ?>
 </body>
 </html>

@@ -3,6 +3,7 @@
 class Usuario {
 
     public const CANTIDAD_VICTORIAS = 6; 
+    public const CANTIDAD_DERROTAS = 6;
     public const NIVEL_MAXIMO = 6; 
     public const NIVEL_MINIMO = 0; 
 
@@ -26,7 +27,6 @@ class Usuario {
      */ 
     public function setNombre(string $nombre) {
         $this->nombre = $nombre;
-        echo "Uso funcion padre $this->nombre<br>";
         return $this;
     }
 
@@ -117,8 +117,6 @@ class Usuario {
             return 0;
         }
 
-
-
         $sigo = true;
         $contador = 0;
 
@@ -131,8 +129,11 @@ class Usuario {
 
         $retorno = 0;
 
-        if ($contador % static::CANTIDAD_VICTORIAS == 0 ) {
-            $retorno = ($actual === Resultado::VICTORIA) ? 1 : -1;
+        if ($actual == Resultado::VICTORIA && $contador % static::CANTIDAD_VICTORIAS == 0 ) {
+            $retorno =  1;
+        }
+        elseif ($actual == Resultado::DERROTA && $contador % static::CANTIDAD_DERROTAS == 0) {
+            $retorno = -1;
         }
         return $retorno;
     }
@@ -164,10 +165,10 @@ class Usuario {
             }
 
             if ($contador == self::CANTIDAD_VICTORIAS) {
-                if ($resultado === Resultado::VICTORIA && $nivel < self::NIVEL_MAXIMO) {
+                if ($resultado == Resultado::VICTORIA && $nivel < self::NIVEL_MAXIMO) {
                     $nivel++;
                 }
-                elseif ($nivel > self::NIVEL_MINIMO) {
+                elseif ($contador == self::CANTIDAD_DERROTAS && $nivel > self::NIVEL_MINIMO) {
                     $nivel--;
                 }
 
@@ -191,7 +192,7 @@ class Usuario {
     }
 
     public function __toString() : string {
-        return "Nombre: " . $this->getNombre() . ", Apellidos: $this->apellidos, Deporte: $this->deporte, Nivel: $this->nivel".self::pintarResultados();
+        return "Nombre: " . $this->nombre . ", Apellidos: $this->apellidos, Deporte: $this->deporte, Nivel: $this->nivel".self::pintarResultados();
     }
 
     public final function imprimirInformacion() {

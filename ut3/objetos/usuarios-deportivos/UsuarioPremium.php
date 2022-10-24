@@ -8,20 +8,9 @@ class UsuarioPremium extends Usuario {
     }
 
     public function setNombre(string $nombre) {
-        $this->nombre = $nombre." (Premium)";
-        echo "Uso funcion hijo $this->nombre<br>";
+        parent::setNombre($nombre." (Premium)");
         return $this;
     }
-
-    ? ? ? ? ? ? ? Hay que preguntar por que esto no funciona si no reescribo esto
-    
-    /**
-     * Get the value of nombre
-     */ 
-    public function getNombre(): string {
-        return $this->nombre;
-    }
-
 }
 
 ?>
