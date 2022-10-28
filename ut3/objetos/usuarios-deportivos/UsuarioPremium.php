@@ -1,6 +1,7 @@
 <?php
 
 class UsuarioPremium extends Usuario {
+    
     public const CANTIDAD_VICTORIAS = 3;
 
     public function __construct(string $nombre = "", string $apellidos = "", string $deporte = "") {

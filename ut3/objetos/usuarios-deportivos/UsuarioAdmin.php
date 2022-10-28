@@ -2,6 +2,8 @@
 
 class UsuarioAdmin extends Usuario {
 
+    public const CANTIDAD_VICTORIAS = 3;
+
     public function __construct(string $nombre = "admin",string $apellidos = "", string $deporte = "") {
         parent::__construct($nombre, $apellidos, $deporte);
     }

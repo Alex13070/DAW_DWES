@@ -90,18 +90,18 @@ class Usuario {
         $this->resultados[] = $resultado;
         $msg = $this->getNombre()." registra una $resultado->value. ";
         
-        //$nivel = self::calcularNivelGeneral();
+        //$nivel = $this->calcularNivelGeneral();
         //$msg = ($nivel > $this->nivel) ? "$this->nombre ha subido de nivel":"$this->nombre ha bajado de nivel";
         //$this->nivel = $nivel;
 
-        $respuesta = self::comprobarResultados($resultado);
+        $respuesta = $this->comprobarResultados($resultado);
 
-        if ($respuesta > 0 && $this->nivel < self::NIVEL_MAXIMO) {
+        if ($respuesta > 0 && $this->nivel < $this->NIVEL_MAXIMO) {
             $this->nivel++;
             $msg .= $this->getNombre()." ha subido al nivel $this->nivel";
             
         }
-        elseif ($respuesta < 0 && $this->nivel > self::NIVEL_MINIMO) {
+        elseif ($respuesta < 0 && $this->nivel > $this->NIVEL_MINIMO) {
             $this->nivel--;
             $msg .= "$this->nombre ha bajado al nivel $this->nivel";
         }
@@ -164,11 +164,11 @@ class Usuario {
                     break;
             }
 
-            if ($contador == self::CANTIDAD_VICTORIAS) {
-                if ($resultado == Resultado::VICTORIA && $nivel < self::NIVEL_MAXIMO) {
+            if ($contador == static::CANTIDAD_VICTORIAS) {
+                if ($resultado == Resultado::VICTORIA && $nivel < static::NIVEL_MAXIMO) {
                     $nivel++;
                 }
-                elseif ($contador == self::CANTIDAD_DERROTAS && $nivel > self::NIVEL_MINIMO) {
+                elseif ($contador == static::CANTIDAD_DERROTAS && $nivel > static::NIVEL_MINIMO) {
                     $nivel--;
                 }
 
@@ -185,14 +185,14 @@ class Usuario {
 
     private function pintarResultados() : string {
         return "<ul>".
-            array_reduce($this->resultados, function(string $carry, Resultado $actual) {
+            array_reduce($this->resultados, function(string $carry, Resultado $actual): string {
                 return $carry."<li>$actual->value</li>";
             }, "")
             ."</ul>";
     }
 
     public function __toString() : string {
-        return "Nombre: " . $this->nombre . ", Apellidos: $this->apellidos, Deporte: $this->deporte, Nivel: $this->nivel".self::pintarResultados();
+        return "Nombre: " . $this->nombre . ", Apellidos: $this->apellidos, Deporte: $this->deporte, Nivel: $this->nivel".$this->pintarResultados();
     }
 
     public final function imprimirInformacion() {
