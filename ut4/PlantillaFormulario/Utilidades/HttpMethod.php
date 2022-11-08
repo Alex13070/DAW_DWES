@@ -1,6 +1,6 @@
 <?php 
 
-namespace PlantillaFormulario;
+namespace PlantillaFormulario\Utilidades;
 
 enum HttpMethod : string {
     case GET = "get";

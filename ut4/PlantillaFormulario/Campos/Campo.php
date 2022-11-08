@@ -1,21 +1,43 @@
 <?php
 
-namespace PlantillaFormulario;
+namespace PlantillaFormulario\Campos;
 
-class Campo {
+use PlantillaFormulario\Utilidades\Error;
+use PlantillaFormulario\Utilidades\InputType;
+
+abstract class Campo {
 
     private string $label;
     private string $name;
     private InputType $type;
-    private string $placeholder;
     private string $id;
     private Error $error;
 
-    public function __construct(string $label = "", string $name = "", InputType $type = InputType::TEXT, string $placeholder = "", string $id = "", Error $error) {
+    /**
+     * Aqui va una funcion que comprueba si lo que va dentro del campo es correcto.
+     * Tiene que devolver true o false.
+     */
+    private mixed $test = null;
+
+    public function getTest() : callable|null {
+        return $this->test;
+    }
+
+    /**
+     * Guarda la función para probar si el contenido del campo es correcto.
+     * @param callable $test Funcion en la que se pone como validar el campo.
+     */
+    public function setTest(callable $test) {
+        $this->test = $test;
+        return $this;
+    }
+
+    
+
+    public function __construct(string $label = "", string $name = "", InputType $type = InputType::TEXT, string $id = "", Error $error) {
         $this->label = $label;
         $this->name = $name;
         $this->type = $type;
-        $this->placeholder = $placeholder;
         $this->id = $id;
         $this->error = $error;
     }
@@ -47,15 +69,6 @@ class Campo {
         return $this;
     }
 
-    public function getPlaceholder() : string {
-        return $this->placeholder;
-    }
-
-    public function setPlaceholder(string $placeholder) : Campo{
-        $this->placeholder = $placeholder;
-        return $this;
-    }
-
     public function getType() : InputType {
         return $this->type;
     }
@@ -71,7 +84,7 @@ class Campo {
 
     /**
      * Hay que poner un error con un mensaje descriptivo.
-     * @param $error error a mostrar en caso de que el valor dado no sea bueno
+     * @param Error error a mostrar en caso de que el valor dado no sea bueno
      */
     public function setError(Error $error) : Campo {
         $this->error = $error;
@@ -84,7 +97,6 @@ class Campo {
 
         if ($this->error->isActivado()) {
             $retorno = "<div class='form-text text-danger'>{$this->error->getMensaje()}</div> ";
-            
         }
 
         return $retorno;
@@ -98,12 +110,11 @@ class Campo {
         ";
     }
 
-    protected function contenidoCampo() : string {
-        return "
-            <label class='form-label'>". $this->getLabel() ."</label>
-            <input class='form-control' id='" . $this->getId() . "' type='" . $this->getType()->value . "' name='". $this->getName() ."' placeholder='". $this->getPlaceholder() ."'>
-        ";
-    }
+    public abstract function contenidoCampo() : string;
+
+    public abstract function test(mixed $clave, mixed $valor) : bool;
+
+    public abstract function getFormNames(): array;
 
 }
 

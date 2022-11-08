@@ -2,6 +2,9 @@
 
 namespace PlantillaFormulario;
 
+use PlantillaFormulario\Campos\Campo;
+use PlantillaFormulario\Utilidades\HttpMethod;
+
 class Formulario {
 
     private string $titulo;
@@ -9,7 +12,6 @@ class Formulario {
     private HttpMethod $method;
     private string $id;
     private array $campos;
-
 
     public function __construct(string $titulo = "", string $action = "", HttpMethod $method = HttpMethod::GET, string $id = "") {
         $this->titulo = $titulo;
@@ -20,7 +22,11 @@ class Formulario {
     }
 
     public function addCampo(Campo $campo) {
-        $this->campos[] = $campo;
+        $this->campos[$campo->getName()] = $campo;
+    }
+
+    public function getCampos() : array {
+        return $this->campos;
     }
 
     public function getAction() : string {
@@ -47,6 +53,15 @@ class Formulario {
 
     public function setId(string $id) : Formulario {
         $this->id = $id;
+        return $this;
+    }
+
+    public function getTitulo() : string {
+        return $this->titulo;
+    }
+
+    public function setTitulo(string $titulo) : Formulario {
+        $this->titulo = $titulo;
         return $this;
     }
 
@@ -86,20 +101,21 @@ class Formulario {
         ";
     }
 
-    public function getTitulo() : string {
-        return $this->titulo;
-    }
+    public function getAllFormNames () {
+        $array = [];
+        foreach ($this->campos as $campo) {
+            foreach ($campo->getFormNames() as $name) {
+                $array[] = $name;
+            }
+        }
 
-    public function setTitulo(string $titulo) : Formulario {
-        $this->titulo = $titulo;
-        return $this;
+        return $array;
     }
+    
 }
 
+?>
 
-
-
-?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>

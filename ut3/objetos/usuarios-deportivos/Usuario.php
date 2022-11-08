@@ -96,12 +96,12 @@ class Usuario {
 
         $respuesta = $this->comprobarResultados($resultado);
 
-        if ($respuesta > 0 && $this->nivel < $this->NIVEL_MAXIMO) {
+        if ($respuesta > 0 && $this->nivel < static::NIVEL_MAXIMO) {
             $this->nivel++;
             $msg .= $this->getNombre()." ha subido al nivel $this->nivel";
             
         }
-        elseif ($respuesta < 0 && $this->nivel > $this->NIVEL_MINIMO) {
+        elseif ($respuesta < 0 && $this->nivel > static::NIVEL_MINIMO) {
             $this->nivel--;
             $msg .= "$this->nombre ha bajado al nivel $this->nivel";
         }

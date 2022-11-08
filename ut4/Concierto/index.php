@@ -1,12 +1,12 @@
 <?php
 
-use PlantillaFormulario\Campo;
-use PlantillaFormulario\CampoNumber;
-use PlantillaFormulario\CampoSelect;
-use PlantillaFormulario\Error;
+use PlantillaFormulario\Campos\CampoNumber;
+use PlantillaFormulario\Campos\CampoSelect;
+use PlantillaFormulario\Campos\CampoTexto;
 use PlantillaFormulario\Formulario;
-use PlantillaFormulario\HttpMethod;
-use PlantillaFormulario\InputType;
+use PlantillaFormulario\Utilidades\Error;
+use PlantillaFormulario\Utilidades\HttpMethod;
+use PlantillaFormulario\Utilidades\InputType;
 
 spl_autoload_register(function ($class) {
     $classPath = "../";
@@ -42,18 +42,19 @@ if (isset($_POST["enviar"])) {
 $formulario = new Formulario ("Concierto", "index.php", HttpMethod::POST, "formulario");
 
 
-$campoCancion = new Campo ("Nombre de la canción", "nombre", InputType::TEXT, "Nombre de la canción", "nombre", $errorCancion);
+$campoCancion = new CampoTexto ("Nombre de la canción", "nombre", InputType::TEXT, "Nombre de la canción", "nombre", $errorCancion);
 $campoHora = new CampoNumber("Hora fiesta", "hora", "Hora fiesta", "hora", 0, 23, $errorHora);
 
 $campoMinutos = new CampoSelect("Minutos", "minutos", "Especifica los minutos", "minutos", $errorHora);
-$campoMinutos->addOpcion("00", "00");
-$campoMinutos->addOpcion("15", "15");
-$campoMinutos->addOpcion("30", "30");
-$campoMinutos->addOpcion("45", "45");
+$campoMinutos->crearSelect("00", "00");
+$campoMinutos->crearSelect("15", "15");
+$campoMinutos->crearSelect("30", "30");
+$campoMinutos->crearSelect("45", "45");
 
 $formulario->addCampo($campoCancion);
 $formulario->addCampo($campoHora);
 $formulario->addCampo($campoMinutos);
+
 
 ?>
 

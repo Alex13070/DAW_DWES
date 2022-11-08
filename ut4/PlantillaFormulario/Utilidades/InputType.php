@@ -1,6 +1,6 @@
 <?php 
 
-namespace PlantillaFormulario;
+namespace PlantillaFormulario\Utilidades;
 
 enum InputType : string {
     case DATE = "date";
@@ -10,6 +10,8 @@ enum InputType : string {
     case NUMBER = "number";
     case PASSWORD = "password";
     case RADIO_BUTTON = "radio";
+    case SELECT = "select";
+    case CHECKBOX = "checkbox";
 }
 
 

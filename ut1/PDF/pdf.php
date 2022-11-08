@@ -1,6 +1,6 @@
 <?php 
 include("fpdf.php");
-
+/*
 $nombre = $_GET["nombre"];
 $empresa = $_GET["empresa"];
 $representante = $_GET["representante"];
@@ -37,5 +37,7 @@ $pdf->SetY(55);
 $pdf->Cell(40,10,'Fecha: '.$fecha);
 
 $pdf->Output();
+
+*/
 
 ?>

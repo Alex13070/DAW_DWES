@@ -1,17 +1,21 @@
 <?php
 
-namespace PlantillaFormulario;
+namespace PlantillaFormulario\Campos;
 
-class CampoNumber extends Campo {
+use PlantillaFormulario\Utilidades\Error;
+use PlantillaFormulario\Utilidades\InputType;
+use PlantillaFormulario\Utilidades\Placeholder;
+
+class CampoNumber extends CampoTexto {
 
     private int $maximo;
     private int $minimo;
 
-
     public function __construct(string $label = "", string $name = "", string $placeholder = "", string $id = "", mixed $minimo = "", mixed $maximo = "", Error $error) {
-        parent::__construct($label, $name, InputType::NUMBER, $placeholder, $id, $error);
+        parent::__construct($label, $name, InputType::NUMBER, $id, $placeholder, $error);
         $this->minimo = $minimo;
         $this->maximo = $maximo;
+        $this->placeholder = $placeholder;
     }
 
     public function contenidoCampo() : string {

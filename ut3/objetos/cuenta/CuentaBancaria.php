@@ -48,7 +48,7 @@ class CuentaBancaria {
     }
 
     public function bancarrota() {
-        $this->salado = 0;
+        $this->saldo = 0;
     }
 
     public function mostrar() {

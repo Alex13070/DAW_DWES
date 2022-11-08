@@ -1,6 +1,6 @@
 <?php
 
-namespace PlantillaFormulario;
+namespace PlantillaFormulario\Utilidades;
 
 class Error {
     private string $mensaje;
