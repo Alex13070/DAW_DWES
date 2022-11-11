@@ -36,7 +36,7 @@ class Fecha {
      * @param int Dia. Sus limites se calculan en base al mes y al año
      * @throws Exception En caso de que el valor no sea correcto
      */
-    public function setDay(int $day) {
+    public function setDay(int $day) : void {
 
         if ($day < 0 || $day > cal_days_in_month(CAL_GREGORIAN, $this->month, $this->year)) {
             throw new Exception("El dia debe estar comprendido entre 0 y ". cal_days_in_month(CAL_GREGORIAN, $this->month, $this->year), 1);
@@ -44,6 +44,7 @@ class Fecha {
         }
 
         $this->day = $day;
+
     } 
 
     /**
@@ -51,7 +52,7 @@ class Fecha {
      * @param int Month. Debe de estar entre 1 y 12
      * @throws Exception En caso de que el valor no sea correcto
      */
-    private function setMonth(int $month) {
+    private function setMonth(int $month) : void{
         if ($month < 0 || $month > 12) {
             throw new Exception("El mes debe estar comprendido entre 1 y 12");
         }
@@ -63,7 +64,7 @@ class Fecha {
      * @param int Year. Debe ser mayor que 0
      * @throws Exception En caso de que el valor no sea correcto
      */
-    public function setYear(int $year) {
+    public function setYear(int $year) : void{
         if ($year < 0) {
             throw new Exception("El año no puede ser negativo.");
         }

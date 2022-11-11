@@ -11,7 +11,7 @@ abstract class Campo {
     private string $name;
     private InputType $type;
     private string $id;
-    private Error $error;
+    private string $error;
 
     /**
      * Aqui va una funcion que comprueba si lo que va dentro del campo es correcto.
@@ -34,7 +34,7 @@ abstract class Campo {
 
     
 
-    public function __construct(string $label = "", string $name = "", InputType $type = InputType::TEXT, string $id = "", Error $error) {
+    public function __construct(string $label = "", string $name = "", InputType $type = InputType::TEXT, string $id = "", string $error) {
         $this->label = $label;
         $this->name = $name;
         $this->type = $type;
@@ -78,7 +78,7 @@ abstract class Campo {
         return $this;
     }
 
-    public function getError() : Error{
+    public function getError() : string {
         return $this->error;
     }
 
@@ -86,23 +86,21 @@ abstract class Campo {
      * Hay que poner un error con un mensaje descriptivo.
      * @param Error error a mostrar en caso de que el valor dado no sea bueno
      */
-    public function setError(Error $error) : Campo {
+    public function setError(string $error) : Campo {
         $this->error = $error;
         return $this;
     }
 
     public final function pintarError(): string {
+        return "
+        <div class='invalid-feedback'>
+            $this->error
+        </div>
+        ";
         
-        $retorno = "";
-
-        if ($this->error->isActivado()) {
-            $retorno = "<div class='form-text text-danger'>{$this->error->getMensaje()}</div> ";
-        }
-
-        return $retorno;
     }
 
-    public final function crearCampo() : string {
+    public function crearCampo() : string {
         return "
         <div class='mb-3'>
             " . $this->contenidoCampo() . $this->pintarError() . "

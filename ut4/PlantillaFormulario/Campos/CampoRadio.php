@@ -8,7 +8,7 @@ use PlantillaFormulario\Utilidades\InputType;
 
 class CampoRadio extends CampoMultiple {
 
-    public function __construct(string $label = "", string $name = "", Error $error) {
+    public function __construct(string $label = "", string $name = "", string $error) {
         parent::__construct($label, $name, InputType::RADIO_BUTTON, "", $error);
     }
 

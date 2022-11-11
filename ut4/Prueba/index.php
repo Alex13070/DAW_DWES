@@ -6,7 +6,6 @@ use PlantillaFormulario\Campos\CampoRadio;
 use PlantillaFormulario\Campos\CampoSelect;
 use PlantillaFormulario\Campos\CampoTexto;
 use PlantillaFormulario\Formulario;
-use PlantillaFormulario\Utilidades\Error;
 use PlantillaFormulario\Utilidades\HttpMethod;
 use PlantillaFormulario\Utilidades\InputType;
 
@@ -17,29 +16,22 @@ spl_autoload_register(function ($class) {
 
 $formulario = new Formulario("Prueba formulario", "index.php", HttpMethod::GET, "formularioPrueba");
 
-$errorUsuario = new Error ("El nombre de usuario no es correcto");
-$errorClave = new Error ("La clave debe de tener *sample text*");
-$errorSexo = new Error ("El sexo introducido no es válido");
-$errorEdad = new Error ("La edad debe estar comprendida entre 18 y 100");
-$errorEstudios = new Error ("Los estudios introducidos no son válidos");
-$errorIdiomas = new Error ("Los idiomas introducidos no existen");
+$campoUsuario = new CampoTexto("Usuario", "usuario", InputType::TEXT, "Usuario", "usuario", "El nombre de usuario no es correcto");
+$campoClave = new CampoTexto("Contraseña", "password", InputType::PASSWORD, "Contraseña", "password", "La clave debe de tener *sample text*");
 
-$campoUsuario = new CampoTexto("Usuario", "usuario", InputType::TEXT, "Usuario", "usuario", $errorUsuario);
-$campoClave = new CampoTexto("Contraseña", "password", InputType::PASSWORD, "Contraseña", "password", $errorClave);
-
-$campoSexo = new CampoRadio("Sexo", "sexo", $errorSexo);
+$campoSexo = new CampoRadio("Sexo", "sexo", "Debes marcar al menos un sexo.");
 $campoSexo->crearRadio("Hombre", "H", "sexo");
 $campoSexo->crearRadio("Mujer", "M", "sexo");
 
 
-$campoEdad = new CampoNumber("Edad", "edad", "Diga su edad", "edad", 18, 100, $errorEdad);
+$campoEdad = new CampoNumber("Edad", "edad", "Diga su edad", "edad", 18, 100, "La edad debe estar comprendida entre 18 y 100");
 
-$campoEstudios = new CampoSelect("Estudios", "estudios", "Especifique sus estudios", "estudios", $errorEstudios);
+$campoEstudios = new CampoSelect("Estudios", "estudios", "Especifique sus estudios", "estudios", "Los estudios introducidos no son válidos");
 $campoEstudios->crearSelect("Informatica", 1);
 $campoEstudios->crearSelect("Electrónica", 2);
 $campoEstudios->crearSelect("Matemáticas", 3);
 
-$campoIdiomas = new CampoCheckBox("Idiomas", "idiomas", $errorIdiomas);
+$campoIdiomas = new CampoCheckBox("Idiomas", "idiomas", "Los idiomas introducidos no existen");
 $campoIdiomas->crearCheckbox("Inglés", "I", "ingles", "ingles");
 $campoIdiomas->crearCheckbox("Español", "E", "spanish", "spanish");
 $campoIdiomas->crearCheckbox("Chino", "C", "chino", "chino");
@@ -57,7 +49,6 @@ $errorEdad->setActivado(true);
 
 
 
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -68,7 +59,7 @@ $errorEdad->setActivado(true);
     <title>Prueba formulario</title>
 </head>
 <body>
-    <?= $formulario->pintarFormulario() ?>
+    <?php //$formulario->pintarFormulario() ?>
     <pre>
         <?php print_r($_GET) ?>
     </pre>

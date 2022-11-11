@@ -10,7 +10,7 @@ class CampoTexto extends Campo {
     
     use Placeholder;
 
-    public function __construct(string $label = "", string $name = "", InputType $type = InputType::TEXT, string $placeholder = "", string $id = "", Error $error) {
+    public function __construct(string $label = "", string $name = "", InputType $type = InputType::TEXT, string $placeholder = "", string $id = "", string $error) {
         parent::__construct($label, $name, $type, $id, $error);
         $this->placeholder = $placeholder;
         
@@ -44,3 +44,5 @@ class CampoTexto extends Campo {
         return [$this->name];
     }
 }
+
+?>

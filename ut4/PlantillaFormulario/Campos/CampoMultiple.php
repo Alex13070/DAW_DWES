@@ -10,7 +10,7 @@ abstract class CampoMultiple extends Campo {
 
     private array $opciones;
 
-    public function __construct(string $label = "", string $name = "", InputType $type, string $id = "", Error $error) {
+    public function __construct(string $label = "", string $name = "", InputType $type, string $id = "", string $error) {
         parent::__construct($label, $name, $type, $id, $error);
         $this->opciones = [];
     }

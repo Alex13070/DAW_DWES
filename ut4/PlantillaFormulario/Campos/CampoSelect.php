@@ -11,7 +11,7 @@ class CampoSelect extends CampoMultiple {
 
     use Placeholder;
 
-    public function __construct(string $label = "", string $name = "", string $placeholder = "", string $id ="", Error $error) {
+    public function __construct(string $label = "", string $name = "", string $placeholder = "", string $id ="", string $error) {
         parent::__construct($label, $name, InputType::SELECT, $id, $error);
         $this->placeholder = $placeholder;
     }
