@@ -3,7 +3,6 @@
 namespace PlantillaFormulario\Campos;
 
 use PlantillaFormulario\Opciones\Opcion;
-use PlantillaFormulario\Utilidades\Error;
 use PlantillaFormulario\Utilidades\InputType;
 
 abstract class CampoMultiple extends Campo {
@@ -23,6 +22,10 @@ abstract class CampoMultiple extends Campo {
         $this->opciones[] = $opcion;
     }
 
+    public abstract function validarCampo(array $peticion): bool;
+
     protected abstract function crearOpcion(array $args);
+
+
 
 }

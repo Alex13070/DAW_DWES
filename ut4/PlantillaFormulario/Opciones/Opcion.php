@@ -31,7 +31,7 @@ abstract class Opcion {
         return $this;
     }
 
-    public abstract function pintarOpcion();
+    // public abstract function pintarOpcion();
 }
 
 ?>

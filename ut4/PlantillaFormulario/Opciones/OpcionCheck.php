@@ -1,8 +1,6 @@
 <?php
 
 namespace PlantillaFormulario\Opciones;
-use PlantillaFormulario\InputType;
-use PlantillaFormulario\Utilidades\InputType as UtilidadesInputType;
 
 /**
  * Tiene cada uno su nombre propio
@@ -34,17 +32,6 @@ class OpcionCheck extends Opcion{
         $this->id = $id;
         return $this;
     }
-
-
-    public function pintarOpcion() : string {
-        return "
-        <div class='form-check'>
-            <input class='form-check-input' type='" . UtilidadesInputType::CHECKBOX->value . "' name='" . $this->name . "' id='". $this->id ."' value='" . $this->getValue() . "'>
-            <label class='form-check-label' for='" . $this->id . "'> " . $this->getLabel() . " </label> 
-        </div>
-    ";
-    }
-
     
 }
 

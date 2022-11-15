@@ -3,8 +3,6 @@
 namespace PlantillaFormulario\Utilidades;
 
 use Exception;
-use PlantillaFormulario\Utilidades\HttpMethod;
-use PlantillaFormulario\Utilidades\RegexPhp;
 
 class Validaciones {
     

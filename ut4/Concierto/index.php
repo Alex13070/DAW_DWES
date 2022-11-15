@@ -7,14 +7,12 @@ use PlantillaFormulario\Formulario;
 use PlantillaFormulario\Utilidades\Error;
 use PlantillaFormulario\Utilidades\HttpMethod;
 use PlantillaFormulario\Utilidades\InputType;
+use PlantillaFormulario\Utilidades\RegexPhp;
 
 spl_autoload_register(function ($class) {
     $classPath = "../";
     require("$classPath${class}.php");
 });
-
-$errorCancion = new Error("Nombre no valido");
-$errorHora = new Error ("La hora introducida tiene que ser mayor a la actual");
 
 
 if (isset($_POST["enviar"])) {
@@ -39,13 +37,13 @@ if (isset($_POST["enviar"])) {
     
 }
 
-$formulario = new Formulario ("Concierto", "index.php", HttpMethod::POST, "formulario");
+$formulario = new Formulario ("Concierto", "index.php", HttpMethod::POST);
 
 
-$campoCancion = new CampoTexto ("Nombre de la canción", "nombre", InputType::TEXT, "Nombre de la canción", "nombre", $errorCancion);
-$campoHora = new CampoNumber("Hora fiesta", "hora", "Hora fiesta", "hora", 0, 23, $errorHora);
+$campoCancion = new CampoTexto ("Nombre de la canción", "nombre", InputType::TEXT, "Nombre de la canción", "nombre", "Nombre no valido", RegexPhp::NOMBRE);
+$campoHora = new CampoNumber("Hora fiesta", "hora", "Hora fiesta", "hora", 0, 23, "La hora introducida tiene que ser mayor a la actual");
 
-$campoMinutos = new CampoSelect("Minutos", "minutos", "Especifica los minutos", "minutos", $errorHora);
+$campoMinutos = new CampoSelect("Minutos", "minutos", "Especifica los minutos", "minutos", "La hora introducida tiene que ser mayor a la actual");
 $campoMinutos->crearSelect("00", "00");
 $campoMinutos->crearSelect("15", "15");
 $campoMinutos->crearSelect("30", "30");
@@ -67,7 +65,7 @@ $formulario->addCampo($campoMinutos);
     <title>Temitas</title>
 </head>
 <body>
-    <?= $formulario->pintarFormulario() ?>
+    <?= $formulario->crearFormulario() ?>
     <pre>
         <p><?php print_r($_POST)?></p>
     </pre>
