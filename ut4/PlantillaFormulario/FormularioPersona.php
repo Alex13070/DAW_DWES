@@ -56,3 +56,4 @@ class FormularioPersona extends Formulario {
         return "";
     }
 }
+?>
