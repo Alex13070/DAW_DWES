@@ -1,17 +1,18 @@
-<?
+<?php
 
-namespace PlantillaFormulario;
+namespace Prueba;
 
 use PlantillaFormulario\Campos\CampoCheckBox;
 use PlantillaFormulario\Campos\CampoNumber;
 use PlantillaFormulario\Campos\CampoRadio;
 use PlantillaFormulario\Campos\CampoSelect;
 use PlantillaFormulario\Campos\CampoTexto;
+use PlantillaFormulario\Formulario;
 use PlantillaFormulario\Utilidades\HttpMethod;
 use PlantillaFormulario\Utilidades\InputType;
 use PlantillaFormulario\Utilidades\RegexPhp;
 
-class FormularioPersona extends Formulario {
+class FormularioPersona extends Formulario{
 
     public function __construct() {
         parent::__construct("Prueba formulario", "index.php", HttpMethod::GET);

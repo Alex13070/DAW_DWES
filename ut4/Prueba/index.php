@@ -2,8 +2,6 @@
 
 namespace Prueba;
 
-use PlantillaFormulario\FormularioPersona;
-
 spl_autoload_register(function ($class) {
     $classPath = "../";
     require("$classPath${class}.php");
