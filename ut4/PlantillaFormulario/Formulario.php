@@ -115,7 +115,7 @@ abstract class Formulario {
         }, true);
     }
 
-    private function peticion() : array {
+    protected function peticion() : array {
         $array = null;
 
         switch ($this->method) {

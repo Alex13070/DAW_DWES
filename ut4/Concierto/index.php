@@ -37,21 +37,21 @@ if (isset($_POST["enviar"])) {
     
 }
 
-$formulario = new Formulario ("Concierto", "index.php", HttpMethod::POST);
+// $formulario = new Formulario ("Concierto", "index.php", HttpMethod::POST);
 
 
-$campoCancion = new CampoTexto ("Nombre de la canción", "nombre", InputType::TEXT, "Nombre de la canción", "nombre", "Nombre no valido", RegexPhp::NOMBRE);
-$campoHora = new CampoNumber("Hora fiesta", "hora", "Hora fiesta", "hora", 0, 23, "La hora introducida tiene que ser mayor a la actual");
+// $campoCancion = new CampoTexto ("Nombre de la canción", "nombre", InputType::TEXT, "Nombre de la canción", "nombre", "Nombre no valido", RegexPhp::NOMBRE);
+// $campoHora = new CampoNumber("Hora fiesta", "hora", "Hora fiesta", "hora", 0, 23, "La hora introducida tiene que ser mayor a la actual");
 
-$campoMinutos = new CampoSelect("Minutos", "minutos", "Especifica los minutos", "minutos", "La hora introducida tiene que ser mayor a la actual");
-$campoMinutos->crearSelect("00", "00");
-$campoMinutos->crearSelect("15", "15");
-$campoMinutos->crearSelect("30", "30");
-$campoMinutos->crearSelect("45", "45");
+// $campoMinutos = new CampoSelect("Minutos", "minutos", "Especifica los minutos", "minutos", "La hora introducida tiene que ser mayor a la actual");
+// $campoMinutos->crearSelect("00", "00");
+// $campoMinutos->crearSelect("15", "15");
+// $campoMinutos->crearSelect("30", "30");
+// $campoMinutos->crearSelect("45", "45");
 
-$formulario->addCampo($campoCancion);
-$formulario->addCampo($campoHora);
-$formulario->addCampo($campoMinutos);
+// $formulario->addCampo($campoCancion);
+// $formulario->addCampo($campoHora);
+// $formulario->addCampo($campoMinutos);
 
 
 ?>
@@ -65,7 +65,7 @@ $formulario->addCampo($campoMinutos);
     <title>Temitas</title>
 </head>
 <body>
-    <?= $formulario->crearFormulario() ?>
+    <?php //echo $formulario->crearFormulario() ?>
     <pre>
         <p><?php print_r($_POST)?></p>
     </pre>

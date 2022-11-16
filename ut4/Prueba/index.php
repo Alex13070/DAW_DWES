@@ -7,34 +7,31 @@ spl_autoload_register(function ($class) {
     require("$classPath${class}.php");
 });
 
-$formulario = new FormularioPersona();
+$formulario = new FormularioUsuario();
 
-function pintar(FormularioPersona $formulario) : string {
+function pintar(FormularioUsuario $formulario) : string {
 
     $retorno = "";
 
     if (isset($_GET["enviar"])) {
         if ($formulario->validarFormulario()) {
-            echo "<p>Hola</p>";
-            redirect("www.google.com");
+            $usuario = $formulario->crearObjeto();
+            if (!is_null($usuario)) {
+                AccesoADatos::getSingletone()->escribirFichero($usuario);
+            }       
+            header("Location: \\ut4\\Prueba\\RepresentarDatos.php");     
         }
         else {
-            echo "<p>Hola no valido</p>";
             $retorno = $formulario->crearFormularioValidado();
         }
     }
     else {
-        echo "<p>Hola por defecto</p>";
         $retorno = $formulario->crearFormulario();
     }
 
     return $retorno;
 }
 
-function redirect($url, $statusCode = 303) {
-    header('Location: ' . $url, true, $statusCode);
-    die();
-}
 
 
 ?>
