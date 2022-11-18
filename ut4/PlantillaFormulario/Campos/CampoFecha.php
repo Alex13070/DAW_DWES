@@ -12,7 +12,7 @@ class CampoFecha extends CampoSimple {
     private Fecha|null $max;
 
     public function __construct(string $label, string $name, string $id, string $error, Fecha|null $min, Fecha|null $max) {
-        parent::__construct($label, $name, InputType::DATE, $id, $error);
+        parent::__construct($label, $name, InputType::DATE, $id, $error, RegexPhp::DATE);
         $this->min = $min;
         $this->max = $max;
     }
@@ -30,15 +30,18 @@ class CampoFecha extends CampoSimple {
 	public function validarCampo(array $peticion): bool {
         $valido = false;
         if (isset($peticion[$this->getName()])) {
-            try {
-                $fecha = Fecha::fromYYYYMMDD($peticion[$this->getName()], "-");
+            if (preg_match($this->getPattern()->value, $peticion[$this->getName()])) {
+                try {
+                    $fecha = Fecha::fromYYYYMMDD($peticion[$this->getName()], "-");
 
-                $valido = 
-                    (is_null($this->min) || $this->min->anteriorA($fecha)) && 
-                    (is_null($this->max) || $this->max->posteriorA($fecha));
-            } catch (\Exception $e) {
+                    $valido = 
+                        (is_null($this->min) || $this->min->anteriorA($fecha)) && 
+                        (is_null($this->max) || $this->max->posteriorA($fecha));
+                } catch (\Exception $e) {
 
+                }
             }
+            
         }
 
         return $valido;
