@@ -12,7 +12,7 @@ class CampoFecha extends CampoSimple {
     private Fecha|null $max;
 
     public function __construct(string $label, string $name, string $id, string $error, Fecha|null $min, Fecha|null $max) {
-        parent::__construct($label, $name, InputType::DATE, $id, $error, RegexPhp::NONE);
+        parent::__construct($label, $name, InputType::DATE, $id, $error);
         $this->min = $min;
         $this->max = $max;
     }

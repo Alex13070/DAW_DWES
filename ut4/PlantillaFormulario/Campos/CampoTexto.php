@@ -2,6 +2,7 @@
 
 namespace PlantillaFormulario\Campos;
 
+use PlantillaFormulario\Utilidades\AtributoRegex;
 use PlantillaFormulario\Utilidades\InputType;
 use PlantillaFormulario\Utilidades\Placeholder;
 use PlantillaFormulario\Utilidades\RegexPhp;
@@ -9,9 +10,11 @@ use PlantillaFormulario\Utilidades\RegexPhp;
 class CampoTexto extends CampoSimple {
     
     use Placeholder;
+    use AtributoRegex;
 
     public function __construct(string $label, string $name, InputType $type, string $placeholder, string $id, string $error, RegexPhp $pattern) {
-        parent::__construct($label, $name, $type, $id, $error, $pattern);
+        parent::__construct($label, $name, $type, $id, $error);
+        $this->pattern = $pattern;
         $this->placeholder = $placeholder;        
     }
 

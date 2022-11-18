@@ -8,11 +8,10 @@ use PlantillaFormulario\Utilidades\RegexPhp;
 
 abstract class CampoSimple extends Campo{
 
-    private RegexPhp $pattern;
+    
 
-    public function __construct(string $label, string $name, InputType $type, string $id, string $error, RegexPhp $pattern) {
+    public function __construct(string $label, string $name, InputType $type, string $id, string $error) {
         parent::__construct($label, $name, $type, $id, $error);
-        $this->pattern = $pattern;
     }
 
     public final function crearCampo(array $peticion): string {
@@ -21,15 +20,6 @@ abstract class CampoSimple extends Campo{
             " . $this->contenidoCampo($peticion) . $this->pintarError() . "
         </div>
         ";
-    }
-
-    public function getPattern() : RegexPhp{
-        return $this->pattern;
-    }
-
-    public function setPattern(RegexPhp $pattern) : Campo{
-        $this->pattern = $pattern;
-        return $this;
     }
 
     protected final function previousValue(array $peticion) : string {

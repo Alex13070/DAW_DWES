@@ -2,6 +2,7 @@
 
 namespace PlantillaFormulario\Campos;
 
+use PlantillaFormulario\Utilidades\AtributoRegex;
 use PlantillaFormulario\Utilidades\InputType;
 use PlantillaFormulario\Utilidades\Placeholder;
 use PlantillaFormulario\Utilidades\RegexPhp;
@@ -9,15 +10,17 @@ use PlantillaFormulario\Utilidades\RegexPhp;
 class CampoNumber extends CampoSimple {
 
     use Placeholder;
+    use AtributoRegex;
 
     private int|null $maximo;
     private int|null $minimo;
 
     public function __construct(string $label, string $name, string $placeholder, string $id, int|null $minimo, int|null $maximo, string $error = "") {
-        parent::__construct($label, $name, InputType::NUMBER, $id, $error, RegexPhp::NUMERO);
+        parent::__construct($label, $name, InputType::NUMBER, $id, $error);
         $this->minimo = $minimo;
         $this->maximo = $maximo;
         $this->placeholder = $placeholder;
+        $this->pattern = RegexPhp::NUMERO;
     }
 
 	public function validarCampo(array $peticion): bool {

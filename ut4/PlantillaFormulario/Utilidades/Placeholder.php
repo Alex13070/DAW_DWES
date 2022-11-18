@@ -12,7 +12,7 @@ trait Placeholder {
         return $this->placeholder;
     }
  
-    public function setPlaceholder(string $placeholder) : Campo {
+    public function setPlaceholder(string $placeholder) : mixed {
         $this->placeholder = $placeholder;
         return $this;
     }
