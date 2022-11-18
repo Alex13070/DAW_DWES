@@ -23,7 +23,7 @@ abstract class Formulario {
         $this->campos = [];      
     }
 
-    public function addCampo(Campo $campo) {
+    public final function addCampo(Campo $campo) {
         $this->campos[] = $campo;
     }
 
@@ -67,26 +67,26 @@ abstract class Formulario {
         return $this;
     }
 
-    public final function crearFormulario() : string {
+    public final function crearFormulario(bool $mostrarErrores) : string {
         return $this->plantillaFormulario(array_reduce($this->campos, function (string $acumulador, Campo $campo) { 
-            return $acumulador. $campo->crearCampo();
-        }, ""), false);
+            return $acumulador. $campo->crearCampo($this->peticion());
+        }, ""), $mostrarErrores);
     }
 
-    public final function crearFormularioValidado() : string {
-        return $this->plantillaFormulario(array_reduce($this->campos, function (string $acumulador, Campo $campo) {     
-            return $acumulador. $campo->crearCampoValidado($this->peticion());
-        }, ""), true);
-    }
+    // public final function crearFormularioValidado() : string {
+    //     return $this->plantillaFormulario(array_reduce($this->campos, function (string $acumulador, Campo $campo) {     
+    //         return $acumulador. $campo->crearCampoValidado($this->peticion());
+    //     }, ""), true);
+    // }
 
-    private function plantillaFormulario(string $campos, bool $validado) : string {
+    private function plantillaFormulario(string $campos, bool $mostrarErrores) : string {
         return "
         <div class='card text-right'>
             <div class='card-header'> 
                 <h1 class='text-center'>$this->titulo</h1>
             </div>
             <div class='card-body'>
-                <form action='$this->action' method='" . $this->method->value . "' id='formulario' class='needs-validation " . ($validado ? "was-validated":"") . "' novalidate> 
+                <form action='$this->action' method='" . $this->method->value . "' id='formulario' class='needs-validation " . ($mostrarErrores ? "was-validated":"") . "' novalidate> 
                     $campos
                     <div class='d-grid gap-2 mx-auto'>
                         <input type='submit' value='Enviar' class='btn btn-primary' name='enviar'>
@@ -115,7 +115,7 @@ abstract class Formulario {
         }, true);
     }
 
-    protected function peticion() : array {
+    protected final function peticion() : array {
         $array = null;
 
         switch ($this->method) {
@@ -132,7 +132,9 @@ abstract class Formulario {
 
     }
 
-    abstract function crearObjeto() : mixed;    
+    public abstract function crearObjeto() : mixed;  
+    
+    //public abstract function accionFormulario() : string;
 }
 
 ?>
@@ -142,5 +144,4 @@ abstract class Formulario {
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">  
     <link rel="stylesheet" href="../../ut4/PlantillaFormulario/estilos.css">
 </head>
-    <script src="../../ut4/PlantillaFormulario/formularioBootsrap.js" async></script>
 </html>

@@ -1,6 +1,6 @@
 <?php 
 
-namespace Prueba;
+namespace ValidarUsuario;
 
 enum Idioma : string {
     case INGLES = "Inglés";

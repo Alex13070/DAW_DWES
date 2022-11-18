@@ -1,39 +1,28 @@
 <?php
 
-namespace PlantillaFormulario\Opciones;
-use PlantillaFormulario\InputType;
-use PlantillaFormulario\Utilidades\InputType as UtilidadesInputType;
+// namespace PlantillaFormulario\Opciones;
+// use PlantillaFormulario\InputType;
+// use PlantillaFormulario\Utilidades\InputType as UtilidadesInputType;
 
-/**
- * Tienen que tener todos el mismo name
- */
-class OpcionRadio extends Opcion{
-    private string $id;
-    private string $name;
+// /**
+//  * Tienen que tener todos el mismo name
+//  */
+// class OpcionRadio extends OpcionSelect{
+//     private string $id;
 
-    public function __construct(string $label, string $value, string $id, string $name) {
-        parent::__construct($label, $value);
-        $this->id = $id;
-        $this->name = $name;
-    }
+//     public function __construct(string $label, string $value, string $id) {
+//         parent::__construct($label, $value);
+//         $this->id = $id;
+//     }
 
-    public function getName() : string {
-        return $this->name;
-    }
+//     public function getId() : string {
+//         return $this->id;
+//     }
 
-    public function setName(string $name) : OpcionRadio {
-        $this->name = $name;
-        return $this;
-    }
-
-    public function getId() : string {
-        return $this->id;
-    }
-
-    public function setId(string $id) : OpcionRadio {
-        $this->id = $id;
-        return $this;
-    }    
-}
+//     public function setId(string $id) : OpcionRadio {
+//         $this->id = $id;
+//         return $this;
+//     }    
+// }
 
 ?>

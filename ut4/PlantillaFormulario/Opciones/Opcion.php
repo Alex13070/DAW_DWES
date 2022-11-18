@@ -2,15 +2,16 @@
 
 namespace PlantillaFormulario\Opciones;
 
-abstract class Opcion {
+class Opcion {
 
     private string $label;
     private string $value;
+    private string $id;
 
-
-    public function __construct(string $label, string $value) {
+    public function __construct(string $label, string $value, string $id) {
         $this->label = $label;
         $this->value = $value;
+        $this->id = $id;
     }
  
     public function getLabel() : string {
@@ -31,7 +32,15 @@ abstract class Opcion {
         return $this;
     }
 
-    // public abstract function pintarOpcion();
+    public function setId(string $id) : Opcion {
+        $this->id = $id;
+        return $this;
+    }
+
+    public function getId() : string {
+        return $this->id;
+    }
+
 }
 
 ?>

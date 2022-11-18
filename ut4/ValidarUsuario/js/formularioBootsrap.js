@@ -40,6 +40,14 @@ function checkValidity() {
     });
 }
 
-if (checkboxes.length > 0) {
-    init();
+init();
+
+const clave = document.getElementById("password");
+
+clave.onmouseover = () => {
+    clave.type = "text";
+}
+
+clave.onmouseleave = () => {
+    clave.type = "password";
 }

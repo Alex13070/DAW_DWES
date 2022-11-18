@@ -10,25 +10,17 @@ class CampoTexto extends CampoSimple {
     
     use Placeholder;
 
-    public function __construct(string $label = "", string $name = "", InputType $type = InputType::TEXT, string $placeholder = "", string $id = "", string $error, RegexPhp $pattern) {
+    public function __construct(string $label, string $name, InputType $type, string $placeholder, string $id, string $error, RegexPhp $pattern) {
         parent::__construct($label, $name, $type, $id, $error, $pattern);
         $this->placeholder = $placeholder;        
     }
 
-    public function contenidoCampo() : string {
-        return "
-            <label class='form-label'>". $this->getLabel() ."</label>
-            <input class='form-control' id='" . $this->getId() . "' type='" . $this->getType()->value . 
-                "' name='". $this->getName() ."' placeholder='". $this->getPlaceholder() ."' required>
-        ";
-    }
-
-    public function contenidoValidado(array $peticion) : string {
+    public function contenidoCampo(array $peticion) : string {
         return "
             <label class='form-label'>". $this->getLabel() ."</label>
             <input class='form-control' id='" . $this->getId() . "' type='" . $this->getType()->value . 
                 "' name='". $this->getName() ."' placeholder='". $this->getPlaceholder() .
-                "' value='" . $this->previousValue($peticion) . "' required>
+                "' value='" . $this->previousValue($peticion) . "' pattern='" . substr($this->getPattern()->value, 1, -1) . "' required>
         ";
     }
 

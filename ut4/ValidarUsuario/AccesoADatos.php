@@ -1,6 +1,6 @@
 <?php 
 
-namespace Prueba;
+namespace ValidarUsuario;
 
 use Exception;
 
@@ -9,9 +9,7 @@ class AccesoADatos {
     private const NOMBRE_FICHERO = "Usuarios.csv";
     private static AccesoADatos $accesoADatos;
 
-    private function __construct() {
-
-    }
+    private function __construct() {}
 
     public static function getSingletone() : AccesoADatos {
         if (!isset(self::$accesoADatos)) {

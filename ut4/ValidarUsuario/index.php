@@ -1,6 +1,6 @@
 <?php
 
-namespace Prueba;
+namespace ValidarUsuario;
 
 spl_autoload_register(function ($class) {
     $classPath = "../";
@@ -11,25 +11,24 @@ $formulario = new FormularioUsuario();
 
 function pintar(FormularioUsuario $formulario) : string {
 
-    $retorno = "";
+    $mostrarErrores = false;
 
-    if (isset($_GET["enviar"])) {
+    if (isset($_POST["enviar"])) {
+        
         if ($formulario->validarFormulario()) {
             $usuario = $formulario->crearObjeto();
             if (!is_null($usuario)) {
                 AccesoADatos::getSingletone()->escribirFichero($usuario);
-            }       
-            header("Location: \\ut4\\Prueba\\RepresentarDatos.php");     
+            }
+            header("Location: \\ut4\\ValidarUsuario\\RepresentarDatos.php");    
+            exit(); 
         }
         else {
-            $retorno = $formulario->crearFormularioValidado();
+            $mostrarErrores = true;
         }
     }
-    else {
-        $retorno = $formulario->crearFormulario();
-    }
 
-    return $retorno;
+    return $formulario->crearFormulario($mostrarErrores);
 }
 
 
@@ -46,23 +45,19 @@ function pintar(FormularioUsuario $formulario) : string {
 </head>
 
 <body>
-
     <div class='container'>
         <div class='row p-4'>
-            <div class='col-lg-6 offset-lg-3'>
+            <div class='col-lg-8 offset-lg-2'>
                 <?= pintar($formulario) ?>
             </div>
         </div>
     </div>
 
-    <pre>
-        <?php print_r($_GET) ?>
-    </pre>
+    <!-- <pre>
+        <?php //print_r($_POST) ?>
+    </pre> -->
 
-
-    <pre>
-        <?= $formulario->validarFormulario() ? "Valido" : "No valido" ?>
-    </pre>
+    <script src="./js/formularioBootsrap.js"></script>
 </body>
 
 </html>

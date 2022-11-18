@@ -1,6 +1,6 @@
 <?php 
 
-namespace Prueba;
+namespace ValidarUsuario;
 
 enum Estudios : string {
     case INFORMATICA = "Informática";

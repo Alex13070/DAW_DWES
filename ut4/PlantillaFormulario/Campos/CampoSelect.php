@@ -2,6 +2,7 @@
 
 namespace PlantillaFormulario\Campos;
 
+use PlantillaFormulario\Opciones\Opcion;
 use PlantillaFormulario\Opciones\OpcionSelect;
 use PlantillaFormulario\Utilidades\InputType;
 use PlantillaFormulario\Utilidades\Placeholder;
@@ -15,54 +16,24 @@ class CampoSelect extends CampoMultiple {
         $this->placeholder = $placeholder;
     }
 
-    public function contenidoCampo() : string {
-        return (($this->getPlaceHolder() !== "") ? "<option hidden disabled selected value=''>". $this->getPlaceHolder() ."</option>":"") .
-        array_reduce($this->getOpciones(), function(string $acumulador, OpcionSelect $actual) {
-            return $acumulador . "<option value='" . $actual->getValue() ."'>" . $actual->getLabel() . "</option>";
-        }, "");       
-    }    
-
-    public function crearSelect(string $label, string $value) {
-        $this->crearOpcion([
-            "label" => $label,
-            "value" => $value
-        ]);
-    }
-
-	protected function crearOpcion(array $args) : void {
-        $opcion = new OpcionSelect($args["label"], $args["value"]);
-        $this->addOpcion($opcion);
-	}
-
-	public function crearCampo(): string {
+    public function crearCampo(array $peticion): string {
         return "
         <div class='mb-3'>
             <label class='form-label'>". $this->getLabel() ."</label>
             <select class='form-select' aria-label='Default select example' name='". $this->getName() ."' id='" . $this->getId() . "' required>
-                " . $this->contenidoCampo() . "
+                " . $this->contenidoCampo($peticion) . "
             </select> 
         </div>
         ";
 	}
 
-    public function crearCampoValidado(array $peticion): string {
-        return "
-        <div class='mb-3'>
-            <label class='form-label'>". $this->getLabel() ."</label>
-            <select class='form-select' aria-label='Default select example' name='". $this->getName() ."' id='" . $this->getId() . "' required>
-                " . $this->contenidoValidado($peticion) . "
-            </select> 
-        </div>
-        ";
-	}
+    public function contenidoCampo(array $peticion): string {
 
-    public function contenidoValidado(array $peticion): string {
+        $previousValue = (isset($peticion[$this->getName()]) && gettype($peticion[$this->getName()]) == "string")  ? $peticion[$this->getName()] : "";
 
-        $previo = (isset($peticion[$this->getName()]) && gettype($peticion[$this->getName()]) == "string")  ? $peticion[$this->getName()] : "";
-
-        return (($previo === "" && $this->getPlaceHolder() !== "") ? "<option hidden disabled selected value=''>". $this->getPlaceHolder() ."</option>":"") .
-        array_reduce($this->getOpciones(), function(string $acumulador, OpcionSelect $actual) use ($previo) {
-            return $acumulador . "<option value='" . $actual->getValue() ."' value='". (($previo === $actual->getValue()) ? "selected" : "") ."'>" . $actual->getLabel() . "</option>";
+        return (($previousValue === "" && $this->getPlaceHolder() !== "") ? "<option hidden disabled selected value=''>". $this->getPlaceHolder() ."</option>":"") .
+        array_reduce($this->getOpciones(), function(string $acumulador, Opcion $valores) use ($previousValue) {
+            return $acumulador . "<option value='" . $valores->getValue() . "' value='". (($previousValue === $valores->getValue()) ? "selected" : "") ."' id='" . $valores->getId() . "'>". $valores->getLabel() . "</option>";
         }, "");
 	}
 
@@ -70,7 +41,7 @@ class CampoSelect extends CampoMultiple {
         $valido = false;
 
         if (isset($peticion[$this->getName()])){
-            $values = array_map(function(OpcionSelect $op) : string {
+            $values = array_map(function(Opcion $op) : string {
                 return $op->getValue();
             }, $this->getOpciones());
 
@@ -79,7 +50,6 @@ class CampoSelect extends CampoMultiple {
         
         return $valido;
 	}
-
 }
 
 

@@ -11,8 +11,7 @@ abstract class Campo {
     private InputType $type;
     private string $id;
     private string $error;
-
-    private bool $valueEnabled;
+    
     
 
     public function __construct(string $label, string $name, InputType $type, string $id, string $error) {
@@ -21,16 +20,6 @@ abstract class Campo {
         $this->type = $type;
         $this->id = $id;
         $this->error = $error;
-        $this->valueEnabled = false;
-    }
-
-    public function isValueEnabled() : bool{
-        return $this->valueEnabled;
-    }
-
-    public function setValueEnabled(bool $value) : Campo{
-        $this->valueEnabled = $value;
-        return $this;
     }
 
     public function getId() : string{
@@ -87,18 +76,19 @@ abstract class Campo {
         
     }
 
-    public abstract function crearCampo() : string;
-    public abstract function crearCampoValidado(array $peticion) : string;
+    public abstract function crearCampo(array $peticion) : string;
 
-    public abstract function contenidoCampo() : string;
+    public abstract function contenidoCampo(array $peticion) : string;
+    
+    public abstract function validarCampo(array $peticion) : bool;
+    
+    // public abstract function crearCampoValidado(array $peticion) : string;
 
     // public abstract function test(mixed $clave, mixed $valor) : bool;
 
     // public abstract function getFormNames(): array;
 
-    public abstract function validarCampo(array $peticion) : bool;
-
-    public abstract function contenidoValidado(array $peticion) : string;
+    // public abstract function contenidoValidado(array $peticion) : string;
 
 }
 
