@@ -18,7 +18,11 @@ use PlantillaFormulario\Utilidades\RegexPhp;
 class FormularioUsuario extends Formulario {    
 
     public function __construct() {
-        parent::__construct("Prueba formulario", "index.php", HttpMethod::POST);
+        parent::__construct(
+            titulo: "Registro usuarios", 
+            action: "index.php", 
+            method: HttpMethod::POST
+        );
 
         $campoUsuario = new CampoTexto (
             label: "Usuario", 
