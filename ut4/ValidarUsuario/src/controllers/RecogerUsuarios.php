@@ -1,12 +1,14 @@
 <?php
 
-spl_autoload_register(function ($class) {
-    $classPath = "../";
-    require("$classPath${class}.php");
-});
+namespace ValidarUsuario\src\controllers;
+
+require("../util/Autoload.php");
+
+use ValidarUsuario\src\data\AccesoADatosBBDD;
+
 
 /** Simulacion de web service */
 
 header('Content-Type: application/JSON'); 
-use ValidarUsuario\AccesoADatosBBDD;
+
 echo AccesoADatosBBDD::getSingletone()->recogerUsuariosJSON();

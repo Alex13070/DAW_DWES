@@ -1,6 +1,6 @@
 <?php
 
-namespace ValidarUsuario;
+namespace ValidarUsuario\src\util;
 
 interface LeerEscribirCSV {
     public static function fromCSV(string $linea) : mixed;

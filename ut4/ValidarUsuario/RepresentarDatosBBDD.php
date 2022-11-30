@@ -2,10 +2,10 @@
 
 namespace ValidarUsuario;
 
-spl_autoload_register(function ($class) {
-    $classPath = "../";
-    require("$classPath${class}.php");
-});
+use ValidarUsuario\src\data\AccesoADatosBBDD;
+use ValidarUsuario\src\Usuario\Idioma;
+
+require("./src/util/Autoload.php");
 
 $accesoADatos = AccesoADatosBBDD::getSingletone();
 

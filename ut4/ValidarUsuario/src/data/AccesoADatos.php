@@ -1,13 +1,9 @@
 <?php 
 
-namespace ValidarUsuario;
-
-spl_autoload_register(function ($class) {
-    $classPath = "../";
-    require("$classPath${class}.php");
-});
+namespace ValidarUsuario\src\data;
 
 use Exception;
+use ValidarUsuario\src\Usuario\Usuario;
 
 class AccesoADatos {
     

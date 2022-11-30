@@ -1,15 +1,14 @@
 <?php 
 
-namespace ValidarUsuario;
-
-spl_autoload_register(function ($class) {
-    $classPath = "../";
-    require("$classPath${class}.php");
-});
+namespace ValidarUsuario\src\data;
 
 use Exception;
 use PDO;
 use PlantillaFormulario\Utilidades\Fecha;
+use ValidarUsuario\src\Usuario\Estudios;
+use ValidarUsuario\src\Usuario\Idioma;
+use ValidarUsuario\src\Usuario\Sexo;
+use ValidarUsuario\src\Usuario\Usuario;
 
 class AccesoADatosBBDD {
 
