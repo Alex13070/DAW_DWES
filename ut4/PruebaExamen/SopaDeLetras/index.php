@@ -85,19 +85,13 @@ function colocarPalabra(&$tablero, $palabra) {
     }
 }
 
-
-// Funciones extra
-function invertir(string $cadena_a_invertir, string $cadena_invertida, int $posicion) {
-    return ($posicion >= 0) ? invertir($cadena_a_invertir, $cadena_invertida.$cadena_a_invertir[$posicion], --$posicion) : $cadena_invertida;
-}
-
 function palabraHorizontal(array &$tablero, string $palabra, bool $direccion) {
     if (strlen($palabra) > WIDTH ) {
         echo "<h1>La palabra es demasiado larga</h1>";
         return;
     }
 
-    $palabra = $direccion == NORMAL ? strtoupper($palabra) : invertir(strtoupper($palabra), "", strlen($palabra)-1);
+    $palabra = $direccion == NORMAL ? strtoupper($palabra) : strrev(strtoupper($palabra));
 
     $altura = random_int(0, WIDTH-1);
     $inicio = random_int(0, WIDTH-strlen($palabra));
@@ -113,7 +107,7 @@ function palabraVertical(array &$tablero, string $palabra, bool $direccion) {
         return;
     }
 
-    $palabra = $direccion == NORMAL ? strtoupper($palabra) : invertir(strtoupper($palabra), "", strlen($palabra)-1);
+    $palabra = $direccion == NORMAL ? strtoupper($palabra) : strrev(strtoupper($palabra));
 
     $altura = random_int(0, HEIGHT-1);
     $inicio = random_int(0, HEIGHT-strlen($palabra));
