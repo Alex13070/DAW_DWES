@@ -2,6 +2,7 @@
 
 namespace ValidarUsuario;
 
+use Exception;
 use PlantillaFormulario\Campos\CampoCheckBox;
 use PlantillaFormulario\Campos\CampoFecha;
 use PlantillaFormulario\Campos\CampoNumber;
@@ -68,16 +69,6 @@ class FormularioUsuario extends Formulario {
             )
         );
 
-        $campoFecha = new CampoFecha(
-            label: "Fecha de nacimiento",
-            name: Usuario::FECHA_CONTRATACION_NAME, 
-            id: "birthdate", 
-            error: "La fecha debe ser de estar entre " . Usuario::getFechaMinima()->toDDMMYYYY() . " y hoy",
-            min: Usuario::getFechaMinima(), 
-            max: Fecha::hoy()
-        );
-
-
         $campoEdad = new CampoNumber(
             label: "Edad", 
             name: Usuario::EDAD_NAME, 
@@ -86,6 +77,15 @@ class FormularioUsuario extends Formulario {
             minimo: Usuario::EDAD_MINIMA, 
             maximo: Usuario::EDAD_MAXIMA, 
             error: "La edad debe estar comprendida entre 18 y 100"
+        );
+
+        $campoFecha = new CampoFecha(
+            label: "Fecha de contratación",
+            name: Usuario::FECHA_CONTRATACION_NAME, 
+            id: "birthdate", 
+            error: "La fecha debe ser de estar entre " . Usuario::getFechaMinima()->toDDMMYYYY() . " y hoy",
+            min: Usuario::getFechaMinima(), 
+            max: Fecha::hoy()
         );
 
         $campoEstudios = new CampoSelect(
@@ -150,19 +150,24 @@ class FormularioUsuario extends Formulario {
     public function crearObjeto(): Usuario|null {
         $usuario = null;
 
-        if ($this->validarFormulario()) {
-            $usuario = new Usuario(
-                usuario: $this->peticion()[Usuario::NOMBRE_NAME],
-                clave: $this->peticion()[Usuario::CLAVE_NAME],
-                sexo: Sexo::from($this->peticion()[Usuario::SEXO_NAME]),
-                edad: intval($this->peticion()[Usuario::EDAD_NAME]),
-                estudios: Estudios::from($this->peticion()[Usuario::ESTUDIOS_NAME]),
-                fechaContratacion: Fecha::fromYYYYMMDD($this->peticion()[Usuario::FECHA_CONTRATACION_NAME], "-")
-            );
-
-            array_walk($this->peticion()[Usuario::IDIOMAS_NAME], function(string $idioma) use ($usuario) {
-                $usuario->addIdioma(Idioma::from($idioma));
-            });
+        try {
+            if ($this->validarFormulario()) {
+                $usuario = new Usuario(
+                    usuario: $this->peticion()[Usuario::NOMBRE_NAME],
+                    clave: $this->peticion()[Usuario::CLAVE_NAME],
+                    sexo: Sexo::from($this->peticion()[Usuario::SEXO_NAME]),
+                    edad: intval($this->peticion()[Usuario::EDAD_NAME]),
+                    estudios: Estudios::from($this->peticion()[Usuario::ESTUDIOS_NAME]),
+                    fechaContratacion: Fecha::fromYYYYMMDD($this->peticion()[Usuario::FECHA_CONTRATACION_NAME], "-")
+                );
+    
+                array_walk($this->peticion()[Usuario::IDIOMAS_NAME], function(string $idioma) use ($usuario) {
+                    $usuario->addIdioma(Idioma::from($idioma));
+                });
+            }
+        }
+        catch(Exception $e) {
+            // Redirigir a pagina de error ¿?
         }
         return $usuario;
     }

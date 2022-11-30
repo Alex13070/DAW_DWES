@@ -2,6 +2,11 @@
 
 namespace ValidarUsuario;
 
+spl_autoload_register(function ($class) {
+    $classPath = "../";
+    require("$classPath${class}.php");
+});
+
 use Exception;
 
 class AccesoADatos {
@@ -41,6 +46,5 @@ class AccesoADatos {
         
         return $array;
     }
-
     
 }

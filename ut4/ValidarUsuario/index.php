@@ -9,21 +9,21 @@ spl_autoload_register(function ($class) {
 
 $formulario = new FormularioUsuario();
 
-function pintar(FormularioUsuario $formulario) : string {
+function pintar(FormularioUsuario $formulario): string
+{
 
     $mostrarErrores = false;
 
     if (isset($_POST["enviar"])) {
-        
+
         if ($formulario->validarFormulario()) {
             $usuario = $formulario->crearObjeto();
             if (!is_null($usuario)) {
                 AccesoADatos::getSingletone()->escribirFichero($usuario);
             }
-            header("Location: \\ut4\\ValidarUsuario\\RepresentarDatos.php");    
-            exit(); 
-        }
-        else {
+            header("Location: \\ut4\\ValidarUsuario\\RepresentarDatos.php");
+            exit();
+        } else {
             $mostrarErrores = true;
         }
     }
@@ -41,6 +41,8 @@ function pintar(FormularioUsuario $formulario) : string {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/bootstrap.css" rel="stylesheet">  
+    <link rel="stylesheet" href="../../ut4/PlantillaFormulario/estilos.css">
     <title>Prueba formulario</title>
 </head>
 

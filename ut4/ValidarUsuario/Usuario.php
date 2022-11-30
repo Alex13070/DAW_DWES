@@ -8,12 +8,12 @@ use PlantillaFormulario\Utilidades\Fecha;
 class Usuario implements LeerEscribirCSV {
 
     public const NOMBRE_NAME = "usuario";
-    public const CLAVE_NAME = "password";
+    public const CLAVE_NAME = "pass";
     public const SEXO_NAME = "sexo";
     public const EDAD_NAME = "edad";
     public const IDIOMAS_NAME = "idiomas";
     public const ESTUDIOS_NAME = "estudios";
-    public const FECHA_CONTRATACION_NAME = "birthdate";
+    public const FECHA_CONTRATACION_NAME = "fecha_contratacion";
 
     public const EDAD_MINIMA = 18;
     public const EDAD_MAXIMA = 100;
@@ -23,13 +23,13 @@ class Usuario implements LeerEscribirCSV {
      */
     public const FECHA_MINIMA = "11-11-2011";
 
-    private string $usuario;
-    private string $clave;
-    private Sexo $sexo;
-    private int $edad;
-    private Estudios $estudios;
-    private array $idiomas;
-    private Fecha $fechaContratacion;
+    public string $usuario;
+    public string $clave;
+    public Sexo $sexo;
+    public int $edad;
+    public Estudios $estudios;
+    public array $idiomas;
+    public Fecha $fechaContratacion;
 
     public function __construct(string $usuario, string $clave, Sexo $sexo, int $edad, Estudios $estudios, Fecha $fechaContratacion) {
         $this->usuario = $usuario;

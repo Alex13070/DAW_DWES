@@ -7,9 +7,11 @@ spl_autoload_register(function ($class) {
     require("$classPath${class}.php");
 });
 
-$accesoADatos = AccesoADatos::getSingletone();
+$accesoADatos = AccesoADatosBBDD::getSingletone();
 
-$usuarios = $accesoADatos->leerFichero();
+$usuarios = $accesoADatos->recogerUsuarios();
+
+$accesoADatos->getIdiomas();
 
 function pintarUsuarios(array $usuarios) { 
     $datos = "";
@@ -37,7 +39,6 @@ function pintarUsuarios(array $usuarios) {
 function limpiarString(string $s) : string {
     return trim(htmlentities($s));
 }
-
 
 ?>
 <!DOCTYPE html>

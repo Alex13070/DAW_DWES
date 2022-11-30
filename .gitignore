@@ -1,5 +1,9 @@
 # No queremos que se suban los .csv
 *.csv
+*.txt
 
-#Pruebas
-ut4/proyecto
+# Configuracion del entorno
+/.vscode
+
+# No añadimos el bootstrap 
+bootstrap.css
