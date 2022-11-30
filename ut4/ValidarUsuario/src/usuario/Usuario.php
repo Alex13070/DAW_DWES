@@ -1,9 +1,10 @@
 <?php 
 
-namespace ValidarUsuario;
+namespace ValidarUsuario\src\Usuario;
 
 use Exception;
 use PlantillaFormulario\Utilidades\Fecha;
+use ValidarUsuario\src\util\LeerEscribirCSV;
 
 class Usuario implements LeerEscribirCSV {
 

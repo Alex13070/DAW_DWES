@@ -1,6 +1,6 @@
 <?php 
 
-namespace ValidarUsuario;
+namespace ValidarUsuario\src\Usuario;
 
 enum Idioma : string {
     case INGLES = "Inglés";

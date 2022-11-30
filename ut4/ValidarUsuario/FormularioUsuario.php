@@ -15,6 +15,10 @@ use PlantillaFormulario\Utilidades\Fecha;
 use PlantillaFormulario\Utilidades\HttpMethod;
 use PlantillaFormulario\Utilidades\InputType;
 use PlantillaFormulario\Utilidades\RegexPhp;
+use ValidarUsuario\src\Usuario\Estudios;
+use ValidarUsuario\src\Usuario\Idioma;
+use ValidarUsuario\src\Usuario\Sexo;
+use ValidarUsuario\src\Usuario\Usuario;
 
 class FormularioUsuario extends Formulario {    
 

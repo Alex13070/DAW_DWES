@@ -2,10 +2,10 @@
 
 namespace ValidarUsuario;
 
-spl_autoload_register(function ($class) {
-    $classPath = "../";
-    require("$classPath${class}.php");
-});
+use ValidarUsuario\src\data\AccesoADatos;
+
+require("./src/util/Autoload.php");
+
 
 $formulario = new FormularioUsuario();
 
@@ -42,7 +42,7 @@ function pintar(FormularioUsuario $formulario): string
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="./css/bootstrap.css" rel="stylesheet">  
-    <link rel="stylesheet" href="../../ut4/PlantillaFormulario/estilos.css">
+    <link rel="stylesheet" href="../PlantillaFormulario/estilos.css">
     <title>Prueba formulario</title>
 </head>
 

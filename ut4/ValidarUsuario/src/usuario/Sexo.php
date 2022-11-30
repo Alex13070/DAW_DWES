@@ -1,6 +1,6 @@
 <?php 
 
-namespace ValidarUsuario;
+namespace ValidarUsuario\src\Usuario;
 
 enum Sexo : string{
     case HOMBRE = "Hombre";
