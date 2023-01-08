@@ -1,9 +1,9 @@
 <?php
 
-namespace PlantillaFormulario\Campos;
+namespace ut4\PlantillaFormulario\Campos;
 
-use PlantillaFormulario\Opciones\Opcion;
-use PlantillaFormulario\Utilidades\InputType;
+use ut4\PlantillaFormulario\Opciones\Opcion;
+use ut4\PlantillaFormulario\Utilidades\InputType;
 
 class CampoRadio extends CampoMultiple {
 

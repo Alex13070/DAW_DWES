@@ -1,10 +1,10 @@
 <?php
 
-namespace PlantillaFormulario;
+namespace ut4\PlantillaFormulario;
 
 use Exception;
-use PlantillaFormulario\Campos\Campo;
-use PlantillaFormulario\Utilidades\HttpMethod;
+use ut4\PlantillaFormulario\Campos\Campo;
+use ut4\PlantillaFormulario\Utilidades\HttpMethod;
 
 abstract class Formulario {
 

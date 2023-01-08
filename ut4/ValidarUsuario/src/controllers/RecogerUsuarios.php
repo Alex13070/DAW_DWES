@@ -1,10 +1,10 @@
 <?php
 
-namespace ValidarUsuario\src\controllers;
+namespace ut4\ValidarUsuario\src\controllers;
 
 require("../util/Autoload.php");
 
-use ValidarUsuario\src\data\AccesoADatosBBDD;
+use ut4\ValidarUsuario\src\data\AccesoADatosBBDD;
 
 
 /** Simulacion de web service */

@@ -1,9 +1,9 @@
 <?php 
 
-namespace ValidarUsuario;
+namespace ut4\ValidarUsuario;
 
-use ValidarUsuario\src\data\AccesoADatosBBDD;
-use ValidarUsuario\src\Usuario\Idioma;
+use ut4\ValidarUsuario\src\data\AccesoADatosBBDD;
+use ut4\ValidarUsuario\src\Usuario\Idioma;
 
 require("./src/util/Autoload.php");
 

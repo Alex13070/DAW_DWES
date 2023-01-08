@@ -1,11 +1,10 @@
 <?php
 
-namespace ValidarUsuario;
+namespace ut4\ValidarUsuario;
 
-use ValidarUsuario\src\data\AccesoADatos;
+use ut4\ValidarUsuario\src\data\AccesoADatos;
 
 require("./src/util/Autoload.php");
-
 
 $formulario = new FormularioUsuario();
 

@@ -1,14 +1,14 @@
 <?php 
 
-namespace ValidarUsuario\src\data;
+namespace ut4\ValidarUsuario\src\data;
 
 use Exception;
 use PDO;
-use PlantillaFormulario\Utilidades\Fecha;
-use ValidarUsuario\src\Usuario\Estudios;
-use ValidarUsuario\src\Usuario\Idioma;
-use ValidarUsuario\src\Usuario\Sexo;
-use ValidarUsuario\src\Usuario\Usuario;
+use ut4\PlantillaFormulario\Utilidades\Fecha;
+use ut4\ValidarUsuario\src\Usuario\Estudios;
+use ut4\ValidarUsuario\src\Usuario\Idioma;
+use ut4\ValidarUsuario\src\Usuario\Sexo;
+use ut4\ValidarUsuario\src\Usuario\Usuario;
 
 class AccesoADatosBBDD {
 

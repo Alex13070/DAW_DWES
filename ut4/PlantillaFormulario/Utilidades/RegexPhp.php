@@ -1,6 +1,6 @@
 <?php
 
-namespace PlantillaFormulario\Utilidades;
+namespace ut4\PlantillaFormulario\Utilidades;
 
 enum RegexPhp : string {
 

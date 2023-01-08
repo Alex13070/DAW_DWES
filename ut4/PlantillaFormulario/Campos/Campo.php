@@ -1,8 +1,8 @@
 <?php
 
-namespace PlantillaFormulario\Campos;
+namespace ut4\PlantillaFormulario\Campos;
 
-use PlantillaFormulario\Utilidades\InputType;
+use ut4\PlantillaFormulario\Utilidades\InputType;
 
 abstract class Campo {
 

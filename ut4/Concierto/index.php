@@ -1,13 +1,13 @@
 <?php
 
-use PlantillaFormulario\Campos\CampoNumber;
-use PlantillaFormulario\Campos\CampoSelect;
-use PlantillaFormulario\Campos\CampoTexto;
-use PlantillaFormulario\Formulario;
-use PlantillaFormulario\Utilidades\Error;
-use PlantillaFormulario\Utilidades\HttpMethod;
-use PlantillaFormulario\Utilidades\InputType;
-use PlantillaFormulario\Utilidades\RegexPhp;
+use ut4\PlantillaFormulario\Campos\CampoNumber;
+use ut4\PlantillaFormulario\Campos\CampoSelect;
+use ut4\PlantillaFormulario\Campos\CampoTexto;
+use ut4\PlantillaFormulario\Formulario;
+use ut4\PlantillaFormulario\Utilidades\Error;
+use ut4\PlantillaFormulario\Utilidades\HttpMethod;
+use ut4\PlantillaFormulario\Utilidades\InputType;
+use ut4\PlantillaFormulario\Utilidades\RegexPhp;
 
 spl_autoload_register(function ($class) {
     $classPath = "../";

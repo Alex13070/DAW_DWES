@@ -1,6 +1,6 @@
 <?php 
 
-namespace PlantillaFormulario\Opciones;
+namespace ut4\PlantillaFormulario\Opciones;
 
 class Opcion {
 

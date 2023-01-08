@@ -1,11 +1,11 @@
 <?php
 
-namespace PlantillaFormulario\Campos;
+namespace ut4\PlantillaFormulario\Campos;
 
-use PlantillaFormulario\Opciones\Opcion;
-use PlantillaFormulario\Opciones\OpcionSelect;
-use PlantillaFormulario\Utilidades\InputType;
-use PlantillaFormulario\Utilidades\Placeholder;
+use ut4\PlantillaFormulario\Opciones\Opcion;
+use ut4\PlantillaFormulario\Opciones\OpcionSelect;
+use ut4\PlantillaFormulario\Utilidades\InputType;
+use ut4\PlantillaFormulario\Utilidades\Placeholder;
 
 class CampoSelect extends CampoMultiple {
 

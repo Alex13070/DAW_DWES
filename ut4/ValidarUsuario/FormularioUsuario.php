@@ -1,24 +1,24 @@
 <?php
 
-namespace ValidarUsuario;
+namespace ut4\ValidarUsuario;
 
 use Exception;
-use PlantillaFormulario\Campos\CampoCheckBox;
-use PlantillaFormulario\Campos\CampoFecha;
-use PlantillaFormulario\Campos\CampoNumber;
-use PlantillaFormulario\Campos\CampoRadio;
-use PlantillaFormulario\Campos\CampoSelect;
-use PlantillaFormulario\Campos\CampoTexto;
-use PlantillaFormulario\Formulario;
-use PlantillaFormulario\Opciones\Opcion;
-use PlantillaFormulario\Utilidades\Fecha;
-use PlantillaFormulario\Utilidades\HttpMethod;
-use PlantillaFormulario\Utilidades\InputType;
-use PlantillaFormulario\Utilidades\RegexPhp;
-use ValidarUsuario\src\Usuario\Estudios;
-use ValidarUsuario\src\Usuario\Idioma;
-use ValidarUsuario\src\Usuario\Sexo;
-use ValidarUsuario\src\Usuario\Usuario;
+use ut4\PlantillaFormulario\Campos\CampoCheckBox;
+use ut4\PlantillaFormulario\Campos\CampoFecha;
+use ut4\PlantillaFormulario\Campos\CampoNumber;
+use ut4\PlantillaFormulario\Campos\CampoRadio;
+use ut4\PlantillaFormulario\Campos\CampoSelect;
+use ut4\PlantillaFormulario\Campos\CampoTexto;
+use ut4\PlantillaFormulario\Formulario;
+use ut4\PlantillaFormulario\Opciones\Opcion;
+use ut4\PlantillaFormulario\Utilidades\Fecha;
+use ut4\PlantillaFormulario\Utilidades\HttpMethod;
+use ut4\PlantillaFormulario\Utilidades\InputType;
+use ut4\PlantillaFormulario\Utilidades\RegexPhp;
+use ut4\ValidarUsuario\src\usuario\Estudios;
+use ut4\ValidarUsuario\src\usuario\Idioma;
+use ut4\ValidarUsuario\src\usuario\Sexo;
+use ut4\ValidarUsuario\src\usuario\Usuario;
 
 class FormularioUsuario extends Formulario {    
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace PlantillaFormulario\Utilidades;
+namespace ut4\PlantillaFormulario\Utilidades;
 
-use PlantillaFormulario\Campos\Campo;
+use ut4\PlantillaFormulario\Campos\Campo;
 
 trait Placeholder {
 

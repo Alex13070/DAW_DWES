@@ -1,9 +1,9 @@
 <?php 
 
-namespace ValidarUsuario\src\data;
+namespace ut4\ValidarUsuario\src\data;
 
 use Exception;
-use ValidarUsuario\src\Usuario\Usuario;
+use ut4\ValidarUsuario\src\Usuario\Usuario;
 
 class AccesoADatos {
     

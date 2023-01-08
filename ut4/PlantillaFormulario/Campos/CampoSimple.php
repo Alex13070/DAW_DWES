@@ -1,10 +1,10 @@
 <?php
 
-namespace PlantillaFormulario\Campos;
+namespace ut4\PlantillaFormulario\Campos;
 
-use PlantillaFormulario\Campos\Campo;
-use PlantillaFormulario\Utilidades\InputType;
-use PlantillaFormulario\Utilidades\RegexPhp;
+use ut4\PlantillaFormulario\Campos\Campo;
+use ut4\PlantillaFormulario\Utilidades\InputType;
+use ut4\PlantillaFormulario\Utilidades\RegexPhp;
 
 abstract class CampoSimple extends Campo{
 

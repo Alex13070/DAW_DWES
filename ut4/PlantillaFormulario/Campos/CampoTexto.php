@@ -1,11 +1,11 @@
 <?php 
 
-namespace PlantillaFormulario\Campos;
+namespace ut4\PlantillaFormulario\Campos;
 
-use PlantillaFormulario\Utilidades\AtributoRegex;
-use PlantillaFormulario\Utilidades\InputType;
-use PlantillaFormulario\Utilidades\Placeholder;
-use PlantillaFormulario\Utilidades\RegexPhp;
+use ut4\PlantillaFormulario\Utilidades\AtributoRegex;
+use ut4\PlantillaFormulario\Utilidades\InputType;
+use ut4\PlantillaFormulario\Utilidades\Placeholder;
+use ut4\PlantillaFormulario\Utilidades\RegexPhp;
 
 class CampoTexto extends CampoSimple {
     
