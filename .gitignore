@@ -7,3 +7,7 @@
 
 # No añadimos el bootstrap 
 bootstrap.css
+
+# No meter comprimidos
+*.zip
+*.rar
