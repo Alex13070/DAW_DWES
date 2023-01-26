@@ -3,7 +3,7 @@
 namespace ut4\ValidarUsuario;
 
 use ut4\ValidarUsuario\src\data\AccesoADatos;
-use ut4\ValidarUsuario\src\Usuario\Idioma;
+use ut4\ValidarUsuario\src\usuario\Idioma;
 
 require("./src/util/Autoload.php");
 

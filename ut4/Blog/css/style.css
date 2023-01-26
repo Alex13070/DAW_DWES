@@ -1,0 +1,266 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+
+html {
+    background-color: gray;
+    padding-bottom: 20px !important;
+}
+
+
+
+main, section{
+    padding: 10px;
+    
+}
+label {
+    float: left;
+    width: 150px;
+    line-height: 24px;
+    padding-right: 10px;
+    text-align: right;
+    letter-spacing: 1px;
+}
+
+input {
+    width: 200px;
+}
+
+.centrar {
+    display: grid;  
+    justify-content: center;
+}
+h1 {
+    text-align: center;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+    word-wrap: break-word;
+    width: 370px;
+}
+
+nav {
+    display: grid;
+    align-items: center;
+    position: static;
+    background-color: #000;
+    margin: 0px;
+    height: 60px;
+}
+
+nav a {
+    text-decoration: none;
+    color: inherit;
+    font-size: 14px;
+}
+
+nav li {
+    display: inline-block;
+    width: 10%;
+    background-color: #000;
+    text-align: center;
+    color: #fff;
+    height: 60px;
+}
+
+.nav_item_right {
+    float: right;
+}
+
+.nav_item_right > div,
+.nav_item > div {
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+}
+
+.nav_item {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+nav li:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.usuario {
+    float: right;
+    position:relative;
+    width: 18%;
+    height: 60px;
+}
+
+.foto {
+    height: 60px;
+    
+}
+
+.foto img {
+    height: 50px;
+    float: left;
+    margin-right: 8px;
+    margin-left: 8px;
+}
+
+.foto {
+    display:flex;
+    justify-content: left;
+    align-items: center;
+}
+
+.texto_nav {
+    white-space: nowrap; 
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+ul {
+    margin: 0%;
+}
+
+body {
+    margin: 0%;
+}
+
+textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.crear_post {
+    width: 415px
+}
+
+input[type=submit] {
+
+    border: 1px solid grey;
+    background-color: lightgray;
+    border: 1px solid grey;
+    background-color: lightgray;
+    color: #000;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 3px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.boton {
+    padding: 1px;
+    border: 1px solid grey;
+    background-color: lightgray;
+    color: #000;
+    font-size: 15px;
+    text-align: center;
+    border-radius: 3px;
+    text-decoration:none;
+    width: 200px;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.post {
+    width: 80vw;
+    border-radius: 5px;
+    box-shadow: 0.3em 0.3em 1em rgba(0,0,0,0.3);
+    margin: 20px auto;
+    background-color: #fff;
+}
+
+.main_container {
+    justify-content: center;
+    width: 100%;
+    height:93.8vh;
+    background-color: gray;  
+    padding-bottom: 10vh !important;  
+}
+
+.flex {
+    display: flex;
+}
+
+.titulo {
+    font-size: 20px;
+}
+
+.nombre_apartado {
+    margin-right: 10px;
+}
+
+.foto_perfil {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.no_decorar {
+    text-decoration: none;
+    color: black;
+}
+
+.formulario {
+    border-radius: 5px;
+    box-shadow: 0.3em 0.3em 1em rgba(0,0,0,0.3);
+    margin: 20px auto;
+    padding: 30px;
+    background-color: #fff;
+}
+
+.pad-10 {
+    padding: 10px;
+}
+
+.input_comentario {
+    width: 90%;
+    height: 30px;
+    margin-right: 8px;
+}
+
+.boton_enviar {
+    width: 40px;
+    height: 40px;
+    background-color: dodgerblue;
+    border-radius: 100%;
+    border: none;
+
+}
+
+.caja_comentar {
+    display: flex;
+    align-items: center;
+}
+
+.boton_enviar img {
+    width: 20px;
+    height: 20px;
+    filter: invert(1);
+    margin-top: 5px;
+}
+
+
+.foto-comentario {
+    width: 10px;
+    height: 10px;
+    /* transform: scale(0.6); */
+    border-radius: 100%;
+}
+
+.texto-comentario {
+    margin-left: 30px;
+}
+
+.caja {
+    width: 80vw;
+    border-radius: 5px;
+    box-shadow: 0.3em 0.3em 1em rgba(0,0,0,0.3);
+    margin: 20px auto;
+    background-color: #fff;
+    
+}
+

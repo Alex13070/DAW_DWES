@@ -5,10 +5,10 @@ namespace ut4\ValidarUsuario\src\data;
 use Exception;
 use PDO;
 use ut4\PlantillaFormulario\Utilidades\Fecha;
-use ut4\ValidarUsuario\src\Usuario\Estudios;
-use ut4\ValidarUsuario\src\Usuario\Idioma;
-use ut4\ValidarUsuario\src\Usuario\Sexo;
-use ut4\ValidarUsuario\src\Usuario\Usuario;
+use ut4\ValidarUsuario\src\usuario\Estudios;
+use ut4\ValidarUsuario\src\usuario\Idioma;
+use ut4\ValidarUsuario\src\usuario\Sexo;
+use ut4\ValidarUsuario\src\usuario\Usuario;
 
 class AccesoADatosBBDD {
 
@@ -33,9 +33,7 @@ class AccesoADatosBBDD {
             $this->conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $this->conn->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
         } catch (Exception $e) {
-            echo "<h1>Error al conectar con la base de datos</h1>";
-            echo $e->getMessage();
-            die();
+            $this->mostrarError("Error al conectar con la base de datos", $e);
         }
     }
 
@@ -62,7 +60,7 @@ class AccesoADatosBBDD {
             $retorno = !empty($resultados);
         }
         catch (Exception $e) {
-            echo "No va";
+            $this->mostrarError("Error al conectar con la base de datos", $e);
         }
 
         return $retorno;
@@ -113,6 +111,7 @@ class AccesoADatosBBDD {
             }
             catch (Exception $e) {
                 $this->conn->rollBack();
+                $this->mostrarError("Error al conectar con la base de datos", $e);
                 $retorno = "Error interno";
             }
         }
@@ -138,7 +137,7 @@ class AccesoADatosBBDD {
             }
         }
         catch (Exception $e) {
-
+            $this->mostrarError("Error al conectar con la base de datos", $e);
         }
 
         return $retorno;
@@ -156,10 +155,6 @@ class AccesoADatosBBDD {
             );
             $statement->execute();
             $usuarios = $statement->fetchAll();
-
-            // echo "<pre>";
-            //     print_r(json_encode($usuarios, JSON_PRETTY_PRINT));
-            // echo "</pre>";
             
             foreach($usuarios as $usuario) {
 
@@ -182,7 +177,7 @@ class AccesoADatosBBDD {
             }
 
         } catch (Exception $e) {
-            
+            $this->mostrarError("Error al conectar con la base de datos", $e);
         }
 
         return $retorno;
@@ -192,6 +187,16 @@ class AccesoADatosBBDD {
     public function recogerUsuariosJSON() :string {
         return json_encode($this->recogerUsuarios());
     }
+
+
+    private function mostrarError(string $mensaje, \Throwable $error) {
+        echo "<h1>$mensaje</h1>";
+        echo ("<pre>");
+        print_r($error);
+        echo ("</pre>");
+        die();
+    }
+    
 
     
 }

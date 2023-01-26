@@ -3,6 +3,7 @@
 namespace ut4\ValidarUsuario;
 
 use ut4\ValidarUsuario\src\data\AccesoADatos;
+use ut4\ValidarUsuario\src\data\AccesoADatosBBDD;
 
 require("./src/util/Autoload.php");
 
@@ -17,10 +18,10 @@ function pintar(FormularioUsuario $formulario): string
 
         if ($formulario->validarFormulario()) {
             $usuario = $formulario->crearObjeto();
-            if (!is_null($usuario)) {
-                AccesoADatos::getSingletone()->escribirFichero($usuario);
+            if (!is_null($usuario) && !AccesoADatosBBDD::getSingletone()->existeUsuario($usuario)) {
+                AccesoADatosBBDD::getSingletone()->insertarUsuario($usuario);
             }
-            header("Location: \\ut4\\ValidarUsuario\\RepresentarDatos.php");
+            header("Location: \\ut4\\ValidarUsuario\\RepresentarDatosBBDD.php");
             exit();
         } else {
             $mostrarErrores = true;

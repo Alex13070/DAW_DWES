@@ -6,7 +6,7 @@ print_r($_POST);
 
 spl_autoload_register(function ($class) {
     $classPath = "../../";
-    require("$classPath${class}.php");
+    require("$classPath$class.php");
 });
 
 

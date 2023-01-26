@@ -2,13 +2,13 @@
 
 namespace examen\ej4;
 
-use PlantillaFormulario\Campos\CampoCheckBox;
-use PlantillaFormulario\Campos\CampoTexto;
-use PlantillaFormulario\Formulario;
-use PlantillaFormulario\Opciones\Opcion;
-use PlantillaFormulario\Utilidades\HttpMethod;
-use PlantillaFormulario\Utilidades\InputType;
-use PlantillaFormulario\Utilidades\RegexPhp;
+use ut4\PlantillaFormulario\Campos\CampoCheckBox;
+use ut4\PlantillaFormulario\Campos\CampoTexto;
+use ut4\PlantillaFormulario\Formulario;
+use ut4\PlantillaFormulario\Opciones\Opcion;
+use ut4\PlantillaFormulario\Utilidades\HttpMethod;
+use ut4\PlantillaFormulario\Utilidades\InputType;
+use ut4\PlantillaFormulario\Utilidades\RegexPhp;
 
 class FormularioExamen extends Formulario {
     

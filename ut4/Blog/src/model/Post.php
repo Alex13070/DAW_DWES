@@ -1,6 +1,6 @@
 <?php 
 
-namespace ut4\Blog\src\objetos;
+namespace ut4\Blog\src\model;
 
 class Post {
     
@@ -8,7 +8,6 @@ class Post {
     private string $titulo;
     private string $cuerpo;
     private string $fecha;
-
 
     public function getUsuario() {
         return $this->usuario;

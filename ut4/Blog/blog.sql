@@ -6,7 +6,7 @@ USE blog;
 
 CREATE TABLE IF NOT EXISTS usuario (
     id INT AUTO_INCREMENT,
-    usuario VARCHAR(255), 
+    correo VARCHAR(255) UNIQUE, 
     clave VARCHAR(255), 
     nombre VARCHAR(255),
     apellido VARCHAR(255),

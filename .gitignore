@@ -11,3 +11,7 @@ bootstrap.css
 # No meter comprimidos
 *.zip
 *.rar
+
+# No subir imágenes
+ut4/Blog/images
+ut4/login_sesiones/img

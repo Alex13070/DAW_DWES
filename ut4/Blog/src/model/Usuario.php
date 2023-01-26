@@ -1,22 +1,23 @@
 <?php
 
-namespace ut4\Blog\src\objetos;
+namespace ut4\Blog\src\model;
 
 class Usuario {
 
-    private string $nombreUsuario;
+    // id
+    private string $correo;
     private string $clave;
 
     private string $nombre;
 
     private string $apellidos;
 
-    public function getNombreUsuario() {
-        return $this->nombreUsuario;
+    public function getCorreo() {
+        return $this->correo;
     }
 
-    public function setNombreUsuario($nombreUsuario) {
-        $this->nombreUsuario = $nombreUsuario;
+    public function setCorreo($correo) {
+        $this->correo = $correo;
         return $this;
     }
 
@@ -49,8 +50,8 @@ class Usuario {
     }
 
 
-    public function __construct(string $nombreUsuario, string $clave, string $nombre, string $apellidos) {
-        $this->nombreUsuario = $nombreUsuario;
+    public function __construct(string $correo, string $clave, string $nombre, string $apellidos) {
+        $this->correo = $correo;
         $this->clave = $clave;
         $this->nombre = $nombre;
         $this->apellidos = $apellidos;
