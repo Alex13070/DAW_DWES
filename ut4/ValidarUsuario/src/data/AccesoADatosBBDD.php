@@ -4,6 +4,7 @@ namespace ut4\ValidarUsuario\src\data;
 
 use Exception;
 use PDO;
+use stdClass;
 use ut4\PlantillaFormulario\Utilidades\Fecha;
 use ut4\ValidarUsuario\src\usuario\Estudios;
 use ut4\ValidarUsuario\src\usuario\Idioma;
@@ -185,8 +186,44 @@ class AccesoADatosBBDD {
     }
 
     public function recogerUsuariosJSON() :string {
-        return json_encode($this->recogerUsuarios());
+        return json_encode(array_map(function(Usuario $usuario) {
+            return $usuario->getUsuario();
+        }, $this->recogerUsuarios()));
     }
+
+    public function existeNombreUsuario(string $nombreUsuario) : stdClass{     
+        $retorno = new stdClass ();
+
+        try {
+            $statement = $this->conn->prepare("SELECT * FROM usuario WHERE usuario = :usuario");
+            $statement->execute(
+                array(
+                    ":usuario" => $nombreUsuario
+                )
+            );
+
+            $resultados = $statement->fetchAll();
+            
+            $retorno = new stdClass ();
+
+            if (empty($resultados)) {
+                $retorno->exito = true;
+                $retorno->mensaje = 'El usuario introducido no existe';
+            }
+            else {
+                $retorno->exito = false;
+                $retorno->mensaje = 'El usuario introducido ya existe';
+            }
+        }
+        catch (Exception $e) {
+            $retorno->exito = false;
+            $retorno->mensaje = 'Error al buscar usuario';
+        }
+
+        return $retorno;
+    }
+
+
 
 
     private function mostrarError(string $mensaje, \Throwable $error) {
